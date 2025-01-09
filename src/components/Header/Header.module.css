@@ -1,0 +1,25 @@
+.header {
+    width: 100%;
+    background-color: var(--primaria);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.figura {
+    display: flex;
+    align-items: center;
+}
+
+.botoes {
+    display: flex;
+    gap: 4rem;
+}
+
+.botao {
+    text-decoration: none;
+}
+
+.botao:hover {
+    color: var(--secundaria);
+}

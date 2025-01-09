@@ -1,0 +1,7 @@
+.container {
+    width: 100%;
+    min-height: 90vh;
+
+    background-color: var(--primaria);
+    padding-block: 1rem;
+}

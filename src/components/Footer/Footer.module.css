@@ -1,0 +1,53 @@
+.footer > * {
+    flex: 1; 
+}
+
+.footer {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--secundaria);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer h1 {
+    font-weight: 300;
+}
+
+.textoEndereco {
+    font-size: 10px;
+}
+
+.telefone {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.6rem;
+    align-items: center;
+    gap: 5px;
+}
+
+.textoTelefone {
+    font-size: 15px;
+}
+
+.textoCopyright{
+    font-size: 15px;
+}
+
+.desenvolvedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.desenvolvedorAncora {
+    text-decoration: none;
+}
+
+.desenvolvedorAncora:hover {
+    color: var(--primaria);
+}
