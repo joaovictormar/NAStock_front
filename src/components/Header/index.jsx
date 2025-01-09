@@ -1,6 +1,6 @@
 import styles from "./Header.module.css"
 import {Link} from "react-router-dom";
-import logo from "../../assets/logoNovo.png"
+import logo from "../../assets/logo.png"
 
 function Header () {
 
@@ -11,9 +11,10 @@ function Header () {
                 <h1>STOCK</h1>
             </figure>
             <div className={styles.botoes}>
-                <Link className={styles.botao} to="/home">Home</Link>
+                <Link className={styles.botao} to="/">Home</Link>
                 <Link className={styles.botao} to="/estoque">Estoque</Link>
                 <Link className={styles.botao} to="/locacao">Locação</Link>
+                <Link className={styles.botao} to="/categorias">Categorias</Link>
             </div>
         </section>
     )

@@ -1,0 +1,10 @@
+.CardEquipamento {
+    display: flex;   
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    border: 1px solid var(--secundaria);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 20%;
+}

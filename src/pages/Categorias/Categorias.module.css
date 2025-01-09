@@ -1,0 +1,11 @@
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.categorias > * {
+    flex: 1 1 calc(33.33% - 1rem);
+    box-sizing: border-box;
+}

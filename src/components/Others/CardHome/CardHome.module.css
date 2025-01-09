@@ -1,0 +1,32 @@
+.cardHome {
+    width: 33%;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--terciaria);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.imagem {
+    width: 250px;
+    height: 250px;
+}
+
+.descricao {
+    border: 1px solid 0;
+    border-radius: 10px;
+    background-color: var(--secundaria);
+    padding: 1rem;
+    color: var(--primaria);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.descricao:hover {
+    color: var(--terciaria);
+    transition: 0.4s;
+    scale: 1.1;
+}
