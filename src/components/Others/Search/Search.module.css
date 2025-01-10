@@ -1,0 +1,21 @@
+.pesquisa {
+    width: 500px;
+    padding: 0.3rem;
+    border-radius: 15px;
+    border: 0;
+    color: var(--primaria);
+    background-color: var(--cinza-claro);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('../../../assets/search.svg');
+    background-position: left 10px center;
+    background-repeat: no-repeat; 
+    background-size: 20px 20px; 
+    padding-left: 40px;
+}
+
+.pesquisa::-webkit-search-cancel-button {
+    display: none; 
+}
+

@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png"
 function Header () {
 
     return (
+        
         <section className={styles.header}>
             <figure className={styles.figura}>
                 <img className={styles.logo} src={logo}/>
@@ -17,6 +18,7 @@ function Header () {
                 <Link className={styles.botao} to="/categorias">Categorias</Link>
             </div>
         </section>
+
     )
 
 };

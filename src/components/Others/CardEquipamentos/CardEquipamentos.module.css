@@ -1,0 +1,53 @@
+.cardEquipamentos {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;   
+    align-items: center;
+    border: 1px solid 0;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: var(--cinza-claro);
+}
+
+.textoPropriedade {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.textoPropriedade h1 {
+    font-weight: 600;
+}
+
+.texto {
+    color: var(--primaria);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.edicao {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.botoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.botao {
+    width: 80px;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--primaria);
+    color: var(--terciaria);
+}
+
+.botao:hover {
+    background-color: var(--secundaria);
+    transition: 0.2s;
+    cursor: pointer;
+}
