@@ -11,12 +11,13 @@
     gap: 4rem;
 }
 
-.botao {
+.link {
         padding: 0.5rem;
         border-radius: 8px;
         border: 0;
         background-color: var(--secundaria);
         color: var(--terciaria);
+        text-decoration: none;
 }
 
 .botao:hover {

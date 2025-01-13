@@ -1,7 +1,8 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PaginaBase from "./pages/PaginaBase";
-import Categorias from "./pages/Categorias";
 import Home from "./pages/Home";
+import Categorias from "./pages/Categorias";
+import AddEquipamentos from "./pages/Secondary/AddEquipamentos";
 
 function AppRoutes () {
 
@@ -11,6 +12,7 @@ function AppRoutes () {
                 <Route path="/" element={<PaginaBase/>}>
                     <Route index element={<Home/>}/>
                     <Route path="/categorias" element= {<Categorias/>}/>
+                    <Route path="/addequipamentos" element= {<AddEquipamentos/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
