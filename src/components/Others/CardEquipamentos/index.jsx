@@ -1,8 +1,37 @@
+import { useState } from "react";
 import styles from "./CardEquipamentos.module.css";
 
-function CardEquipamentos ({imagem, categoria, marca, modelo, processador, memoria, disco, quantidade, imagemTexto}) {
+function CardEquipamentos ({id, imagem, categoria, marca, modelo, processador, memoria, disco, quantidade, imagemTexto}) {
+    
+
+    const [mensagem, setMensagem] = useState('');
+    const excluiEquipamento = async () => {
+        try {
+            const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
+                method: "DELETE",
+            });
+
+            if (response.ok) {
+                setMensagem("Equipamento excluído com sucesso");
+                console.log("Exclusão concluída para o item com ID:", id);
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+
+            } else {
+                setMensagem("Erro ao excluir equipamento")
+                console.error("Erro na exclusão:", response.statusText);
+            }
+        } catch (error) {
+            setMensagem("Erro ao conectar com a API")
+            console.error("Erro ao conectar com a API:", error);
+        }
+    };
 
     return (
+        <>
+            {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}   
             <figure className={styles.cardEquipamentos}>
                 <ul className={styles.propriedades}>
                     <li className={styles.textoPropriedade}>
@@ -38,14 +67,12 @@ function CardEquipamentos ({imagem, categoria, marca, modelo, processador, memor
                     <img className={styles.imagem} src={imagem} alt={imagemTexto}/>
                     <div className={styles.botoes}>
                         <button className={styles.botao}>Editar</button>
-                        <button className={styles.botao}>Excluir</button>               
+                        <button className={styles.botao} onClick={excluiEquipamento}>Excluir</button>            
                     </div>
                 </div>
             </figure>
-    )
-
+            </>
+    );
 };
 
 export default CardEquipamentos;
-
-

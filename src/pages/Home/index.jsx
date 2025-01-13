@@ -5,7 +5,6 @@ import Search from "../../components/Others/Search";
 import CardEquipamentos from "../../components/Others/CardEquipamentos";
 
 function Home() {
-
     const [equipamentos, setEquipamentos] = useState([]);
 
     useEffect(() => {
@@ -13,7 +12,7 @@ function Home() {
         .then((response) => response.json())
         .then((data) => setEquipamentos(data))
         .catch((error) => console.log(`Erro ao buscar equipamentos: ${error}`))
-    });
+    }, []); 
 
     return (
             <section className={styles.home}>
@@ -24,6 +23,7 @@ function Home() {
                 {equipamentos.length > 0 ? (
                     equipamentos.map((equipamento) => (
                         <CardEquipamentos 
+                        id={equipamento.id}
                         categoria={equipamento.categoria}
                         marca={equipamento.marca}
                         modelo={equipamento.modelo}

@@ -1,3 +1,7 @@
+.mensagem {
+    color: var(--secundaria)
+}
+
 .cardAddEquipamentos {
     width: 40%;
     display: flex;
@@ -7,6 +11,7 @@
     border-radius: 12px;
     padding: 2rem;
     background-color: var(--cinza-claro);
+    align-items: center;
 }
 
 .formulario {
@@ -36,6 +41,7 @@
 }
 
 .botao {
+    width: 100%;
     margin-top: 1.5rem;
     border-radius: 8px;
     background-color: var(--primaria);
