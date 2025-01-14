@@ -8,7 +8,7 @@
 .homeSuperior {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .link {
@@ -20,9 +20,14 @@
         text-decoration: none;
 }
 
-.botao:hover {
+.link:hover {
     background-color: var(--cinza-claro);
     color: var(--primaria);
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.3s;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
 }

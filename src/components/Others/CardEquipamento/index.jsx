@@ -30,22 +30,6 @@ function CardEquipamento ({id, imagem, categoria, marca, modelo, processador, me
         }
     };
 
-    const atualizaEquipamento = async () => {
-        try {
-            const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
-                method: "POST"
-            });
-
-            if(response.ok) {
-                setMensagem("Equipamento editado com sucesso");
-                console.log("Edição concluída ", id);
-            }
-        } catch (error) {
-            setMensagem("Erro ao conectar com a API")
-            console.error("Erro ao conectar com a API:", error)
-        }
-    };
-
     return (
         <>
             {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}   

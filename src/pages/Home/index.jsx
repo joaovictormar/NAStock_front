@@ -18,7 +18,10 @@ function Home() {
             <section className={styles.home}>
                 <div className={styles.homeSuperior}>
                     <Search/>
-                    <Link to="addequipamento" className={styles.link}>Adicionar Equipamento</Link>
+                    <div className={styles.links}>
+                        <Link to="/addequipamento" className={styles.link}>Adicionar Equipamento</Link>
+                        <Link to="/vincularpatrimonio" className={styles.link}>Vincular Patrimônio</Link>
+                    </div>
                 </div>
                 {equipamentos.length > 0 ? (
                     equipamentos.map((equipamento) => (

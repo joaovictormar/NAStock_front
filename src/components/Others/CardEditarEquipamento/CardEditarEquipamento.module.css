@@ -56,3 +56,8 @@
     padding: 0.5rem;
     border: 0;
 }
+
+.botao:hover {
+    background-color: var(--cinza-escuro);
+    cursor: pointer;
+}
