@@ -2,7 +2,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PaginaBase from "./pages/PaginaBase";
 import Home from "./pages/Home";
 import Categorias from "./pages/Categorias";
-import AddEquipamentos from "./pages/Secondary/AddEquipamentos";
+import AddEquipamento from "./pages/Secondary/AddEquipamento";
+import EditarEquipamento from "./pages/Secondary/EditarEquipamento";
 
 function AppRoutes () {
 
@@ -12,7 +13,8 @@ function AppRoutes () {
                 <Route path="/" element={<PaginaBase/>}>
                     <Route index element={<Home/>}/>
                     <Route path="/categorias" element= {<Categorias/>}/>
-                    <Route path="/addequipamentos" element= {<AddEquipamentos/>}/>
+                    <Route path="/addequipamento" element= {<AddEquipamento/>}/>
+                    <Route path="/editarequipamento" element={<EditarEquipamento/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

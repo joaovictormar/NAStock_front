@@ -2,7 +2,7 @@
     color: var(--secundaria)
 }
 
-.cardEquipamentos {
+.cardEquipamento {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,6 +49,9 @@
     border: 0;
     background-color: var(--primaria);
     color: var(--terciaria);
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
 }
 
 .botao:hover {

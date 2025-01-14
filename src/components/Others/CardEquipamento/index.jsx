@@ -1,14 +1,15 @@
 import { useState } from "react";
-import styles from "./CardEquipamentos.module.css";
+import styles from "./CardEquipamento.module.css";
+import { Link } from "react-router-dom";
 
-function CardEquipamentos ({id, imagem, categoria, marca, modelo, processador, memoria, disco, quantidade, imagemTexto}) {
+function CardEquipamento ({id, imagem, categoria, marca, modelo, processador, memoria, disco, quantidade, imagemTexto}) {
     
 
     const [mensagem, setMensagem] = useState('');
     const excluiEquipamento = async () => {
         try {
             const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
-                method: "DELETE",
+                method: "DELETE"
             });
 
             if (response.ok) {
@@ -29,10 +30,26 @@ function CardEquipamentos ({id, imagem, categoria, marca, modelo, processador, m
         }
     };
 
+    const atualizaEquipamento = async () => {
+        try {
+            const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
+                method: "POST"
+            });
+
+            if(response.ok) {
+                setMensagem("Equipamento editado com sucesso");
+                console.log("Edição concluída ", id);
+            }
+        } catch (error) {
+            setMensagem("Erro ao conectar com a API")
+            console.error("Erro ao conectar com a API:", error)
+        }
+    };
+
     return (
         <>
             {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}   
-            <figure className={styles.cardEquipamentos}>
+            <figure className={styles.cardEquipamento}>
                 <ul className={styles.propriedades}>
                     <li className={styles.textoPropriedade}>
                         <h1 className={styles.texto}>Categoria -</h1>
@@ -66,7 +83,7 @@ function CardEquipamentos ({id, imagem, categoria, marca, modelo, processador, m
                 <div className={styles.edicao}>
                     <img className={styles.imagem} src={imagem} alt={imagemTexto}/>
                     <div className={styles.botoes}>
-                        <button className={styles.botao}>Editar</button>
+                        <Link to="/editarequipamento" className={styles.botao} state={{id:id}}>Editar</Link>
                         <button className={styles.botao} onClick={excluiEquipamento}>Excluir</button>            
                     </div>
                 </div>
@@ -75,4 +92,4 @@ function CardEquipamentos ({id, imagem, categoria, marca, modelo, processador, m
     );
 };
 
-export default CardEquipamentos;
+export default CardEquipamento;

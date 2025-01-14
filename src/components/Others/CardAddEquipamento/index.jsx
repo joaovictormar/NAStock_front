@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "./CardAddEquipamentos.module.css"
+import styles from "./CardAddEquipamento.module.css"
 import { useNavigate } from "react-router-dom";
 
-function CardAddEquipamentos () {
+function CardAddEquipamento () {
 
     const [categoria, setCategoria] = useState("");
     const [marca, setMarca] = useState("");
@@ -67,7 +67,7 @@ function CardAddEquipamentos () {
 
     return (
         <>
-        <form className={styles.cardAddEquipamentos} onSubmit={enviarFormulario}>  
+        <form className={styles.cardAddEquipamento} onSubmit={enviarFormulario}>  
             {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
             <div className={styles.formulario}>
                 <label className={styles.texto}>Categoria:</label>
@@ -107,4 +107,4 @@ function CardAddEquipamentos () {
     );
 }
 
-export default CardAddEquipamentos;
+export default CardAddEquipamento;

@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import {Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 import Search from "../../components/Others/Search";
-import CardEquipamentos from "../../components/Others/CardEquipamentos";
+import CardEquipamento from "../../components/Others/CardEquipamento";
 
 function Home() {
     const [equipamentos, setEquipamentos] = useState([]);
@@ -18,11 +18,11 @@ function Home() {
             <section className={styles.home}>
                 <div className={styles.homeSuperior}>
                     <Search/>
-                    <Link to="addequipamentos" className={styles.link}>Adicionar Equipamento</Link>
+                    <Link to="addequipamento" className={styles.link}>Adicionar Equipamento</Link>
                 </div>
                 {equipamentos.length > 0 ? (
                     equipamentos.map((equipamento) => (
-                        <CardEquipamentos 
+                        <CardEquipamento 
                         id={equipamento.id}
                         categoria={equipamento.categoria}
                         marca={equipamento.marca}
