@@ -1,7 +1,3 @@
-.mensagem {
-    color: var(--secundaria)
-}
-
 .cardEquipamento {
     display: flex;
     justify-content: space-between;

@@ -1,0 +1,35 @@
+.patrimonio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.patrimonioSuperior {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+}
+
+.link {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--secundaria);
+    color: var(--terciaria);
+    text-decoration: none;
+}
+
+.link:hover {
+background-color: var(--cinza-claro);
+color: var(--primaria);
+cursor: pointer;
+transition: 0.3s;
+}
+

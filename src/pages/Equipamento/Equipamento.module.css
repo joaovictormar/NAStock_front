@@ -1,11 +1,11 @@
-.home {
+.equipamento {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
 }
 
-.homeSuperior {
+.equipamentoSuperior {
     display: flex;
     align-items: center;
     gap: 3rem;

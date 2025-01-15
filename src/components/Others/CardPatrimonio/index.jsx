@@ -1,10 +1,10 @@
-import styles from "./CardLocalEquipamento.module.css"
+import styles from "./CardPatrimonio.module.css"
 
-function CardLocalEquipamento ({equipamento_id, patrimonio, local, obs, imagemTexto ,categoria, marca, modelo, processador, memoria, disco, quantidade}) {
+function CardPatrimonio ({imagem, equipamento_id, patrimonio, local, obs, imagemTexto ,categoria, marca, modelo, processador, memoria, disco, quantidade}) {
 
     return (
 
-        <section className={styles.cardLocalEquipamento}>
+        <section className={styles.cardPatrimonio}>
             <div className={styles.equipamentos}>
                 <div className={styles.descricao}>
                     <h1 className={styles.texto}>Categoria:</h1>
@@ -37,7 +37,7 @@ function CardLocalEquipamento ({equipamento_id, patrimonio, local, obs, imagemTe
             </div>    
 
 
-            <img alt={imagemTexto}></img>
+            <img src={imagem} alt={imagemTexto}></img>
             
             <div className={styles.patrimonios}>
                 <div className={styles.descricao}>
@@ -52,6 +52,7 @@ function CardLocalEquipamento ({equipamento_id, patrimonio, local, obs, imagemTe
                     <h1 className={styles.texto}>OBS:</h1>
                     <h2 className={styles.texto}>{obs}</h2>
                 </div>
+                <button className={styles.botao} oncl>Apagar patrimônio</button>    
             </div>            
         </section>
         
@@ -60,4 +61,4 @@ function CardLocalEquipamento ({equipamento_id, patrimonio, local, obs, imagemTe
 };
 
 
-export default CardLocalEquipamento;
+export default CardPatrimonio;

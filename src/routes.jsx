@@ -1,11 +1,15 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PaginaBase from "./pages/PaginaBase";
-import Home from "./pages/Home";
-import Categorias from "./pages/Categorias";
-import AddEquipamento from "./pages/Secondary/AddEquipamento";
+
+import Equipamento from "./pages/Equipamento";
+import AdicionarEquipamento from "./pages/Secondary/AdicionarEquipamento";
 import EditarEquipamento from "./pages/Secondary/EditarEquipamento";
-import VincularPatrimonio from "./pages/Secondary/VincularPatrimonio";
-import Estoque from "./pages/Estoque";
+import VincularEquipamento from "./pages/Secondary/VincularEquipamento";
+
+import Patrimonio from "./pages/Patrimonio";    
+
+import Categorias from "./pages/Categorias";
+import Estoque from "./pages/Secondary/EstoquePatrimonio";
 
 function AppRoutes () {
 
@@ -13,11 +17,14 @@ function AppRoutes () {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<PaginaBase/>}>
-                    <Route index element={<Home/>}/>
+                    <Route path="/equipamentos" element={<Equipamento/>}/>
+                    <Route path="/equipamentos/adicionar" element= {<AdicionarEquipamento/>}/>
+                    <Route path="/equipamentos/vincular" element={<VincularEquipamento/>}/>
+                    <Route path="/equipamentos/editar" element={<EditarEquipamento/>}/>
+
+                    <Route path="/patrimonios" element={<Patrimonio/>}/>
+
                     <Route path="/categorias" element= {<Categorias/>}/>
-                    <Route path="/addequipamento" element= {<AddEquipamento/>}/>
-                    <Route path="/editarequipamento" element={<EditarEquipamento/>}/>
-                    <Route path="/vincularpatrimonio" element={<VincularPatrimonio/>}/>
                     <Route path="/estoque" element={<Estoque/>}/>
                 </Route>
             </Routes>

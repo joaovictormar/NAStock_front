@@ -1,4 +1,4 @@
-.cardLocalEquipamento {
+.cardPatrimonio {
     border: 1px solid 0;
     background-color: var(--cinza-claro);
     border-radius: 8px;
@@ -23,4 +23,22 @@
 .texto {
     color: var(--primaria);
     font-weight: 600;
+    font-size: 20px;
+}
+
+.botao {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--secundaria);
+    color: var(--terciaria);
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+.botao:hover {
+    background-color: var(--primaria);
+    transition: 0.2s;
+    cursor: pointer;
 }

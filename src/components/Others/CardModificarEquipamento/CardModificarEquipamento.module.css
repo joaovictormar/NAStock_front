@@ -1,8 +1,4 @@
-.mensagem {
-    color: var(--secundaria)
-}
-
-.cardAddEquipamento {
+.cardModificarEquipamento {
     width: 40%;
     display: flex;
     gap: 1rem;
