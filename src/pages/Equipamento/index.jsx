@@ -34,7 +34,7 @@ function Equipamento() {
                     window.location.reload(); 
                 }, 2000);
             } else {
-                setMensagem("Erro ao excluir equipamento");
+                setMensagem("É necessário excluir todos os patrimônios desse equipamento antes de excluí-lo");
                 console.error("Erro na exclusão:", response.statusText);
             }
         } catch (error) {
@@ -78,7 +78,7 @@ function Equipamento() {
                         />
                     ))
                 ) : (
-                    <h1>Carregando equipamentos...</h1>
+                    <h1 className={styles.textoErro}>Sem equipamentos cadastrados</h1>
                 )}
             </section>
         

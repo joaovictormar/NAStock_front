@@ -7,9 +7,9 @@ import EditarEquipamento from "./pages/Secondary/EditarEquipamento";
 import VincularEquipamento from "./pages/Secondary/VincularEquipamento";
 
 import Patrimonio from "./pages/Patrimonio";    
+import Estoque from "./pages/Secondary/EstoquePatrimonio";
 
 import Categorias from "./pages/Categorias";
-import Estoque from "./pages/Secondary/EstoquePatrimonio";
 
 function AppRoutes () {
 
@@ -23,9 +23,9 @@ function AppRoutes () {
                     <Route path="/equipamentos/editar" element={<EditarEquipamento/>}/>
 
                     <Route path="/patrimonios" element={<Patrimonio/>}/>
+                    <Route path="/patrimonios/estoque" element={<Estoque/>}/>
 
                     <Route path="/categorias" element= {<Categorias/>}/>
-                    <Route path="/estoque" element={<Estoque/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

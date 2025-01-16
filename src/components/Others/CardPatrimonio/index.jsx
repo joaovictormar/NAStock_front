@@ -1,6 +1,6 @@
 import styles from "./CardPatrimonio.module.css"
 
-function CardPatrimonio ({imagem, equipamento_id, patrimonio, local, obs, imagemTexto ,categoria, marca, modelo, processador, memoria, disco, quantidade}) {
+function CardPatrimonio ({imagem, patrimonio, local, obs, imagemTexto ,categoria, marca, modelo, processador, memoria, disco, click, quantidade}) {
 
     return (
 
@@ -52,7 +52,7 @@ function CardPatrimonio ({imagem, equipamento_id, patrimonio, local, obs, imagem
                     <h1 className={styles.texto}>OBS:</h1>
                     <h2 className={styles.texto}>{obs}</h2>
                 </div>
-                <button className={styles.botao} oncl>Apagar patrimônio</button>    
+                <button className={styles.botao} onClick={click}>Apagar patrimônio</button>    
             </div>            
         </section>
         

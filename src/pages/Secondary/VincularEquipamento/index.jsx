@@ -54,7 +54,7 @@ function VincularEquipamento() {
                 setLocal("");
                 setObs("");
             } else {
-                setMensagem("Erro ao vincular patrimônio.");
+                setMensagem("Já existe um patrimônio com esse número. Tente outro.");
             }
         } catch (error) {
             console.error("Erro ao conectar com a API:", error);

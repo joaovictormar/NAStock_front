@@ -31,3 +31,12 @@
     display: flex;
     gap: 1rem;
 }
+
+.mensagem {
+    color: var(--secundaria);
+    font-size: 16px;
+}
+
+.textoErro {
+    color: var(--secundaria);
+}
