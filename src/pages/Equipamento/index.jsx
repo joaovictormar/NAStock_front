@@ -5,13 +5,17 @@ import Search from "../../components/Others/Search";
 import CardEquipamento from "../../components/Others/CardEquipamento";
 
 function Equipamento() {
-    const [equipamentos, setEquipamentos] = useState([]);
-    const [mensagem, setMensagem] = useState(""); 
+    const [equipamentos, setEquipamentos] = useState([]); 
+    const [equipamentosFiltrados, setEquipamentosFiltrados] = useState([]); 
+    const [mensagem, setMensagem] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/equipamentos")
             .then((response) => response.json())
-            .then((data) => setEquipamentos(data))
+            .then((data) => {
+                setEquipamentos(data);
+                setEquipamentosFiltrados(data); 
+            })
             .catch((error) =>
                 console.log(`Erro ao buscar equipamentos: ${error}`)
             );
@@ -31,10 +35,12 @@ function Equipamento() {
                 console.log("Exclusão concluída para o item com ID:", id);
 
                 setTimeout(() => {
-                    window.location.reload(); 
+                    window.location.reload();
                 }, 2000);
             } else {
-                setMensagem("É necessário excluir todos os patrimônios desse equipamento antes de excluí-lo");
+                setMensagem(
+                    "É necessário excluir todos os patrimônios desse equipamento antes de excluí-lo"
+                );
                 console.error("Erro na exclusão:", response.statusText);
             }
         } catch (error) {
@@ -43,45 +49,56 @@ function Equipamento() {
         }
     };
 
+    const buscaDinamica = (query) => {
+        if (!query) {
+            setEquipamentosFiltrados(equipamentos);
+        } else {
+            const filtrados = equipamentos.filter((equipamento) =>
+                Object.values(equipamento).some((value) =>
+                    value.toString().toLowerCase().includes(query.toLowerCase())
+                )    
+            );
+            setEquipamentosFiltrados(filtrados);
+        }
+    };
+
     return (
-            
-            <section className={styles.equipamento}>
-                <div className={styles.equipamentoSuperior}>
-                    <Search />
-                    <div className={styles.links}>
-                        <Link to="/equipamentos/adicionar" className={styles.link}>
-                            Adicionar Equipamento
-                        </Link>
-                        <Link to="/equipamentos/vincular" className={styles.link}>
-                            Vincular Patrimônio
-                        </Link>
-                    </div>
+        <section className={styles.equipamento}>
+            <div className={styles.equipamentoSuperior}>
+                <Search onSearch={buscaDinamica} />
+                <div className={styles.links}>
+                    <Link to="/equipamentos/adicionar" className={styles.link}>
+                        Adicionar Equipamento
+                    </Link>
+                    <Link to="/equipamentos/vincular" className={styles.link}>
+                        Vincular Patrimônio
+                    </Link>
                 </div>
-                {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>} 
-                {equipamentos.length > 0 ? (
-                    equipamentos.map((equipamento) => (
-                        <CardEquipamento
-                            key={equipamento.id} 
-                            id={equipamento.id}
-                            categoria={equipamento.categoria}
-                            marca={equipamento.marca}
-                            modelo={equipamento.modelo}
-                            processador={equipamento.processador}
-                            memoria={equipamento.memoria}
-                            disco={equipamento.disco}
-                            quantidade={equipamento.quantidade}
-                            imagem={equipamento.imagem}
-                            imagemTexto={equipamento.modelo}
-                            state={{ id: equipamento.id }} 
-                            rota={"/equipamentos/editar"}
-                            click={() => excluiEquipamento(equipamento.id)} 
-                        />
-                    ))
-                ) : (
-                    <h1 className={styles.textoErro}>Sem equipamentos cadastrados</h1>
-                )}
-            </section>
-        
+            </div>
+            {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
+            {equipamentosFiltrados.length > 0 ? (
+                equipamentosFiltrados.map((equipamento) => (
+                    <CardEquipamento
+                        key={equipamento.id}
+                        id={equipamento.id}
+                        categoria={equipamento.categoria}
+                        marca={equipamento.marca}
+                        modelo={equipamento.modelo}
+                        processador={equipamento.processador}
+                        memoria={equipamento.memoria}
+                        disco={equipamento.disco}
+                        quantidade={equipamento.quantidade}
+                        imagem={equipamento.imagem}
+                        imagemTexto={equipamento.modelo}
+                        state={{ id: equipamento.id }}
+                        rota={"/equipamentos/editar"}
+                        click={() => excluiEquipamento(equipamento.id)}
+                    />
+                ))
+            ) : (
+                <h1 className={styles.textoErro}>Sem equipamentos encontrados</h1>
+            )}
+        </section>
     );
 }
 

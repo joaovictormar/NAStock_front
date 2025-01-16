@@ -8,6 +8,8 @@ function Patrimonio() {
     const [mensagem, setMensagem] = useState("");
     const [patrimonios, setPatrimonios] = useState([]);
     const [equipamentosQueTemPatrimonio, setEquipamentosQueTemPatrimonio] = useState([]);
+    const [dadosCombinados, setDadosCombinados] = useState([]); 
+    const [dadosFiltrados, setDadosFiltrados] = useState([]); 
 
     useEffect(() => {
         fetch("http://localhost:5000/patrimonios")
@@ -36,6 +38,21 @@ function Patrimonio() {
         }
     }, [patrimonios]);
 
+    useEffect(() => {
+        const combinados = patrimonios.map((patrimonio) => {
+            const equipamento = equipamentosQueTemPatrimonio.find(
+                (equip) => equip.id === patrimonio.equipamento_id
+            );
+            return {
+                ...equipamento,
+                ...patrimonio,
+            };
+        });
+
+        setDadosCombinados(combinados); 
+        setDadosFiltrados(combinados);
+    }, [patrimonios, equipamentosQueTemPatrimonio]);
+
     const excluiPatrimonio = async (id) => {
         try {
             const response = await fetch(`http://localhost:5000/patrimonios/${id}`, {
@@ -57,47 +74,55 @@ function Patrimonio() {
         }
     };
 
-    const dadosCombinados = patrimonios.map((patrimonio) => {
-        const equipamento = equipamentosQueTemPatrimonio.find(
-            (equip) => equip.id === patrimonio.equipamento_id
-        );
-        return {
-            ...equipamento,
-            ...patrimonio,
-        };
-    });
+    const buscaDinamica = (query) => {
+        if (!query) {
+            setDadosFiltrados(dadosCombinados); 
+        } else {
+            const filtrados = dadosCombinados.filter((dados) =>
+                Object.values(dados).some((value) =>
+                    value?.toString().toLowerCase().includes(query.toLowerCase())
+                )
+            );
+            setDadosFiltrados(filtrados); 
+        }
+    };
 
     return (
         <section className={styles.patrimonio}>
             <div className={styles.patrimonioSuperior}>
-                <Search />
+                <Search onSearch={buscaDinamica} />
                 <div className={styles.links}>
-                    <Link className={styles.link}>Patrimônios Locados</Link>
-                    <Link to="/patrimonios/estoque" className={styles.link}>Patrimônios no Estoque</Link>
+                    <Link to="/patrimonios/locado" className={styles.link}>
+                        Patrimônios Locados
+                    </Link>
+                    <Link to="/patrimonios/estoque" className={styles.link}>
+                        Patrimônios no Estoque
+                    </Link>
                 </div>
             </div>
             <div className={styles.card}>
-            {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
-            {dadosCombinados.length > 0 ?            
-            dadosCombinados.map((dados) => (
-                <CardPatrimonio
-                    key={dados.id}
-                    categoria={dados.categoria}
-                    marca={dados.marca}
-                    modelo={dados.modelo}
-                    processador={dados.processador}
-                    memoria={dados.memoria}
-                    disco={dados.disco}
-                    quantidade={dados.quantidade}
-                    patrimonio={dados.patrimonio}
-                    local={dados.local}
-                    obs={dados.obs}
-                    imagem={dados.imagem}
-                    click={() => excluiPatrimonio(dados.id)}
-                />
-            )) : (
-                <h1 className={styles.textoErro}>Sem patrimônios cadastrados</h1>
-            )}
+                {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
+                {dadosFiltrados.length > 0 ? (
+                    dadosFiltrados.map((dados) => (
+                        <CardPatrimonio
+                            key={dados.id}
+                            categoria={dados.categoria}
+                            marca={dados.marca}
+                            modelo={dados.modelo}
+                            processador={dados.processador}
+                            memoria={dados.memoria}
+                            disco={dados.disco}
+                            quantidade={dados.quantidade}
+                            patrimonio={dados.patrimonio}
+                            local={dados.local}
+                            obs={dados.obs}
+                            imagem={dados.imagem}
+                            click={() => excluiPatrimonio(dados.id)}
+                        />
+                    ))
+                ) : (
+                    <h1 className={styles.textoErro}>Sem patrimônios cadastrados</h1>
+                )}
             </div>
         </section>
     );

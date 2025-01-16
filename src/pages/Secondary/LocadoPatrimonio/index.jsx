@@ -1,22 +1,22 @@
-import styles from "./Estoque.module.css";
+import styles from "./LocadoPatrimonio.module.css";
 import { useState, useEffect } from "react";
 import CardPatrimonio from "../../../components/Others/CardPatrimonio";
 import Search from "../../../components/Others/Search";
 
-function Estoque() {
+function Locado() {
     const [mensagem, setMensagem] = useState("");  
     const [patrimonios, setPatrimonios] = useState([]);
-    const [equipamentosQueTemLocalEstoque, setEquipamentosQueTemLocalEstoque] = useState([]);
+    const [equipamentosQueTemLocalLocado, setEquipamentosQueTemLocalLocado] = useState([]);
     const [dadosCombinados, setDadosCombinados] = useState([]);
     const [dadosFiltrados, setDadosFiltrados] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/patrimonios/estoque")
+        fetch("http://localhost:5000/patrimonios/locacao")
             .then((response) => response.json())
             .then((data) => {
                 setPatrimonios(data);
             })
-            .catch((error) => console.log(`Erro ao buscar patrimônios no estoque: ${error}`));
+            .catch((error) => console.log(`Erro ao buscar patrimônios locados: ${error}`));
     }, []);
 
     useEffect(() => {
@@ -28,9 +28,9 @@ function Estoque() {
                             .then((res) => res.json())
                     )
                 );
-                setEquipamentosQueTemLocalEstoque(equipamentos);
+                setEquipamentosQueTemLocalLocado(equipamentos);
             } catch (error) {
-                console.log(`Erro ao buscar equipamentos no estoque: ${error}`);
+                console.log(`Erro ao buscar equipamentos locados: ${error}`);
             }
         };
 
@@ -41,7 +41,7 @@ function Estoque() {
 
     useEffect(() => {
         const dadosCombinados = patrimonios.map((patrimonio) => {
-            const equipamento = equipamentosQueTemLocalEstoque.find(
+            const equipamento = equipamentosQueTemLocalLocado.find(
                 (equip) => equip.id === patrimonio.equipamento_id
             );
             return {
@@ -52,7 +52,7 @@ function Estoque() {
 
         setDadosCombinados(dadosCombinados);
         setDadosFiltrados(dadosCombinados);
-    }, [patrimonios, equipamentosQueTemLocalEstoque]);
+    }, [patrimonios, equipamentosQueTemLocalLocado]);
 
     const excluiPatrimonio = async (id) => {
         try {
@@ -86,7 +86,7 @@ function Estoque() {
     };
 
     return (
-        <div className={styles.estoque}>
+        <div className={styles.locado}>
             <Search onSearch={buscaDinamica} />
             {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}  
             {dadosFiltrados.length > 0 ? (
@@ -108,10 +108,10 @@ function Estoque() {
                     />
                 ))
             ) : (
-                <h1 className={styles.textoErro}>Sem patrimônios no estoque</h1>
+                <h1 className={styles.textoErro}>Sem patrimônios locados</h1>
             )}
         </div>
     );
 }
 
-export default Estoque;
+export default Locado;

@@ -1,4 +1,4 @@
-.estoque {
+.locado {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -12,5 +12,5 @@
 
 .mensagem {
     color: var(--secundaria);
-    font-size: 16px;
+    font-size: 160px;
 }
