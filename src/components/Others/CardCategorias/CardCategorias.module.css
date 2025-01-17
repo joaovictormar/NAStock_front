@@ -15,17 +15,8 @@
 }
 
 .descricao {
-    border: 1px solid 0;
-    border-radius: 10px;
-    background-color: var(--cinza-claro);
-    padding: 1rem;
-    color: var(--primaria);
-    text-decoration: none;
+    color: var(--cinza-claro);
+    padding: 3rem;
     font-size: 20px;
     font-weight: 500;
-}
-
-.descricao:hover {
-    transition: 0.4s;
-    scale: 1.1;
 }

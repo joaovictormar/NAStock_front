@@ -1,7 +1,7 @@
 import styles from "./CardEquipamento.module.css";
 import { Link } from "react-router-dom";
 
-function CardEquipamento ({id, imagem, categoria, marca, modelo, processador, memoria, disco, quantidade, imagemTexto, state, rota, click}) {
+function CardEquipamento ({id, categoria, marca, modelo, processador, memoria, disco, quantidade, state, rota, click}) {
     
 
     return (
@@ -37,7 +37,6 @@ function CardEquipamento ({id, imagem, categoria, marca, modelo, processador, me
                     </li>
                 </ul>
                 <div className={styles.edicao}>
-                    <img className={styles.imagem} src={imagem} alt={imagemTexto}/>
                     <div className={styles.botoes}>
                         <Link to={rota} className={styles.botao} state={state}>Editar</Link>
                         <button className={styles.botao} onClick={click}>Excluir</button>            

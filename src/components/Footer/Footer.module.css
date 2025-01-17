@@ -10,15 +10,14 @@
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    font-size: 12px;
 }
 
 .footer h1 {
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .textoEndereco {
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .telefone {
@@ -42,6 +41,7 @@
     justify-content: center;
     align-items: center;
     gap: 2px;
+    font-size: 16px;
 }
 
 .desenvolvedorAncora {

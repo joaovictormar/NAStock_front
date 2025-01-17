@@ -4,10 +4,10 @@
     border-radius: 8px;
     display: flex;
     gap: 2rem;
-    justify-content: space-around;
-    padding: 2rem;
+    justify-content: space-between;
+    padding: 4rem;
     align-items: center;
-    width: 80%;
+    width: 55%;
 }
 
 .equipamentos, .patrimonios {

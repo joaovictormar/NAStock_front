@@ -47,10 +47,6 @@ function CardModificarEquipamento({
                     <label className={styles.texto}>Quantidade:</label>
                     <input onChange={(e) => setQuantidade(e.target.value)} value={quantidade} className={styles.input} type="number" required />
                 </div>
-                <div className={styles.formulario}>
-                    <label className={styles.texto}>Imagem:</label>
-                    <input className={styles.inputImagem} type="file" />
-                </div>
                 <button className={styles.botao} type="submit">Enviar</button>
             </form>
     );

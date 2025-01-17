@@ -1,6 +1,6 @@
 import styles from "./CardPatrimonio.module.css"
 
-function CardPatrimonio ({imagem, patrimonio, local, obs, imagemTexto ,categoria, marca, modelo, processador, memoria, disco, click, quantidade}) {
+function CardPatrimonio ({ patrimonio, local, obs ,categoria, marca, modelo, processador, memoria, disco, click, quantidade}) {
 
     return (
 
@@ -35,10 +35,6 @@ function CardPatrimonio ({imagem, patrimonio, local, obs, imagemTexto ,categoria
                     <h2 className={styles.texto}>{quantidade}</h2>
                 </div>
             </div>    
-
-
-            <img src={imagem} alt={imagemTexto}></img>
-            
             <div className={styles.patrimonios}>
                 <div className={styles.descricao}>
                     <h1 className={styles.texto}>Patrimonio:</h1>

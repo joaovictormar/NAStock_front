@@ -88,8 +88,6 @@ function Equipamento() {
                         memoria={equipamento.memoria}
                         disco={equipamento.disco}
                         quantidade={equipamento.quantidade}
-                        imagem={equipamento.imagem}
-                        imagemTexto={equipamento.modelo}
                         state={{ id: equipamento.id }}
                         rota={"/equipamentos/editar"}
                         click={() => excluiEquipamento(equipamento.id)}

@@ -12,9 +12,9 @@ function Header () {
                 <h1>STOCK</h1>
             </figure>
             <div className={styles.botoes}>
-                <Link className={styles.botao} to="/">Home</Link>
-                <Link className={styles.botao} to="/equipamentos">Equipamentos</Link>
+                <Link className={styles.botao} to="/">Equipamentos</Link>
                 <Link className={styles.botao} to="/patrimonios">Patrimonios</Link>
+                <Link className={styles.botao} to="/sobre">Sobre</Link>
             </div>
         </section>
 

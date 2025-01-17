@@ -103,7 +103,6 @@ function Estoque() {
                         patrimonio={dados.patrimonio}
                         local={dados.local}
                         obs={dados.obs}
-                        imagem={dados.imagem}
                         click={() => excluiPatrimonio(dados.id)}  
                     />
                 ))
