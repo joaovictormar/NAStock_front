@@ -48,7 +48,11 @@
     color: var(--primaria);
 }
 
-.input {
+.campo {
+    color: var(--primaria);
+}
+
+.opcao {
     color: var(--primaria);
 }
 

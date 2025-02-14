@@ -32,27 +32,29 @@ function CardVincular({
                             <input
                                 onChange={(e) => setPatrimonio(e.target.value)}
                                 value={patrimonio}
-                                className={styles.input}
+                                className={styles.campo}
                                 type="text"
                                 required
                             />
                         </div>
                         <div className={styles.formulario}>
                             <label className={styles.texto}>Local:</label>
-                            <input
+                            <select
                                 onChange={(e) => setLocal(e.target.value)}
                                 value={local}
-                                className={styles.input}
-                                type="text"
-                                required
-                            />
+                                className={styles.campo}
+                                required>
+                                    <option className={styles.opcao} value="" disabled>Selecione um local</option>
+                                    <option className={styles.opcao} value="Locação">Locação</option>
+                                    <option className={styles.opcao} value="Estoque">Estoque</option>
+                            </select>
                         </div>
                         <div className={styles.formulario}>
                             <label className={styles.texto}>OBS:</label>
                             <input
                                 onChange={(e) => setObs(e.target.value)}
                                 value={obs}
-                                className={styles.input}
+                                className={styles.campo}
                                 type="text"
                             />
                         </div>
