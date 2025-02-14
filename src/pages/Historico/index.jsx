@@ -1,12 +1,11 @@
+import CardHistorico from "../../components/Others/CardHistorico";
 import styles from "./Historico.module.css";
 
 function Historico () {
 
     return (
         
-        <section>
-            <h1>Em desenvolvimento...</h1>
-        </section>
+        <CardHistorico/>
 
     )
 
