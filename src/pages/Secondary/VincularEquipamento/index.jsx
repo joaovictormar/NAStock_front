@@ -54,7 +54,8 @@ function VincularEquipamento() {
                 setLocal("");
                 setObs("");
             } else {
-                setMensagem("Já existe um patrimônio com esse número. Tente outro.");
+                const errorData = await response.json();
+                setMensagem(errorData.error || "Erro inesperado. Tente novamente.");
             }
         } catch (error) {
             console.error("Erro ao conectar com a API:", error);
