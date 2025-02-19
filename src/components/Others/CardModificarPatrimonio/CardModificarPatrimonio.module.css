@@ -1,0 +1,62 @@
+.cardMoficarPatrimonio {
+    width: 30%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    background-color: var(--cinza-claro);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0 auto; 
+}
+
+.formularios {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+}
+
+.texto {
+    color: var(--primaria);
+    font-weight: 500;
+}
+
+.selecao {
+    color: var(--primaria);
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    border: 0;
+    font-size: 15px;
+}
+
+
+.campo {
+    color: var(--primaria);
+}
+
+.opcao {
+    color: var(--primaria);
+}
+
+.botao {
+    color: var(--terciaria);
+    background-color: var(--secundaria);
+    border-radius: 8px;
+    border: 0;
+    padding: 0.5rem;
+}
+
+.botao:hover {
+    color: var(--primaria);
+    cursor: pointer;
+}

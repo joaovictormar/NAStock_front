@@ -8,7 +8,7 @@ function HistoricoPatrimonio() {
     const [historico, setHistorico] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/historico/patrimonios/${patrimonio_id}`)
+        fetch(`http://localhost:5000/historico/patrimonio/${patrimonio_id}`)
             .then((response) => response.json())
             .then((data) =>{ 
                 const historicoArray = Array.isArray(data) ? data : [data];
