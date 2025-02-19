@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styles from "./CardPatrimonio.module.css"
 
-function CardPatrimonio ({ patrimonio, local, obs ,categoria, marca, modelo, processador, memoria, disco, click, quantidade, clickHistorico}) {
+function CardPatrimonio ({ patrimonio, local, obs ,categoria, marca, modelo, processador, memoria, disco, clickExcluir, quantidade, rotaHistorico}) {
 
     return (
 
@@ -48,8 +49,8 @@ function CardPatrimonio ({ patrimonio, local, obs ,categoria, marca, modelo, pro
                     <h1 className={styles.texto}>OBS:</h1>
                     <h2 className={styles.texto}>{obs}</h2>
                 </div>
-                <button className={styles.botao} onClick={click}>Apagar patrimônio</button>  
-                <button className={styles.botao} onClick={clickHistorico}>Histórico do patrimônio</button>    
+                <button className={styles.botao} onClick={clickExcluir}>Apagar patrimônio</button>  
+                <Link className={styles.botao} to={rotaHistorico}>Histórico</Link>  
             </div>            
         </section>
         

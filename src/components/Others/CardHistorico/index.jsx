@@ -1,10 +1,9 @@
 import styles from "./CardHistorico.module.css";
 
-function CardHistorico ({saida, entrada, data, patrimonio, local, obs}) {
+function CardHistorico ({saida, entrada, data}) {
 
     return (
         <div className={styles.cardHistorico}>
-            <div>
                 <ul className={styles.propriedades}>
                     <li className={styles.textoPropriedade}>
                         <h1 className={styles.texto}>Saída:</h1>
@@ -18,24 +17,7 @@ function CardHistorico ({saida, entrada, data, patrimonio, local, obs}) {
                         <h1 className={styles.texto}>Data:</h1>
                         <h2 className={styles.texto}>{data}</h2>
                     </li>
-                </ul>
-            </div>
-            <div>
-                <ul className={styles.propriedades}>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Patrimônio:</h1>
-                        <h2 className={styles.texto}>{patrimonio}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Local:</h1>
-                        <h2 className={styles.texto}>{local}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>OBS:</h1>
-                        <h2 className={styles.texto}>{obs}</h2>
-                    </li>
-                </ul>            
-            </div>
+                </ul>        
         </div>
     )
 

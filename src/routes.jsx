@@ -11,6 +11,7 @@ import Estoque from "./pages/Secondary/EstoquePatrimonio";
 import Locado from "./pages/Secondary/LocadoPatrimonio";
 
 import Historico from "./pages/Historico";
+import HistoricoPatrimonio from "./pages/Secondary/HistoricoPatrimonio";
 
 import Sobre from "./pages/Sobre";
 
@@ -23,6 +24,7 @@ function AppRoutes () {
                     <Route index element={<Equipamento/>}/>
                     <Route path="/sobre" element= {<Sobre/>}/>
                     <Route path="/historico/patrimonios" element={<Historico/>}/>
+                    <Route path="/historico/patrimonios/:patrimonio_id" element={<HistoricoPatrimonio/>} />
                     <Route path="/equipamentos/adicionar" element= {<AdicionarEquipamento/>}/>
                     <Route path="/equipamentos/vincular" element={<VincularEquipamento/>}/>
                     <Route path="/equipamentos/editar" element={<EditarEquipamento/>}/>
