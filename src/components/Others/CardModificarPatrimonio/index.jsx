@@ -1,6 +1,6 @@
 import styles from "./CardModificarPatrimonio.module.css"
 
-function CardMoficarPatrimonio({setPatrimonio, patrimonio, setLocal, local, setObs, obs}) {
+function CardModificarPatrimonio({setPatrimonio, patrimonio, setLocal, local, setObs, obs, enviarFormulario}) {
 
     return (
         <section className={styles.cardMoficarPatrimonio}>
@@ -28,4 +28,4 @@ function CardMoficarPatrimonio({setPatrimonio, patrimonio, setLocal, local, setO
 
 };
 
-export default CardMoficarPatrimonio;
+export default CardModificarPatrimonio;

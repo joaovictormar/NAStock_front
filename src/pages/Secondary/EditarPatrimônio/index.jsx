@@ -1,8 +1,8 @@
-import CardMoficarPatrimonio from "../../../components/Others/CardModificarPatrimonio";
+import CardModificarPatrimonio from "../../../components/Others/CardModificarPatrimonio";
 
 function EditarPatrimonio () {
     return (
-        <CardMoficarPatrimonio/>
+        <CardModificarPatrimonio/>
     )
 }
 
