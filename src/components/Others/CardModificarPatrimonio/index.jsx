@@ -1,6 +1,14 @@
 import styles from "./CardModificarPatrimonio.module.css"
 
-function CardModificarPatrimonio({setPatrimonio, patrimonio, setLocal, local, setObs, obs, enviarFormulario}) {
+function CardModificarPatrimonio({
+    setPatrimonio, 
+    patrimonio, 
+    setLocal, 
+    local, 
+    setObs, 
+    obs, 
+    enviarFormulario
+}) {
 
     return (
         <section className={styles.cardMoficarPatrimonio}>

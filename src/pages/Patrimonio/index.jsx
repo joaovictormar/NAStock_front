@@ -117,8 +117,8 @@ function Patrimonio() {
                             local={dados.local}
                             obs={dados.obs}
                             state={ {id: dados.id} }
-                            clickExcluir={() => excluiPatrimonio(dados.id)}
                             rotaPatrimonio={`/patrimonios/editar`}
+                            clickExcluir={() => excluiPatrimonio(dados.id)}
                             rotaHistorico={`/historico/patrimonio/${dados.id}`}
                         />
                     ))

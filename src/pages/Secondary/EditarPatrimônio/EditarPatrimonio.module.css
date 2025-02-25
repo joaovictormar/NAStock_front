@@ -1,0 +1,12 @@
+.editarPatrimonio{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    
+}
+
+.mensagem {
+    color: var(--secundaria);
+    font-size: 16px;
+}
