@@ -103,6 +103,8 @@ function Locado() {
                         patrimonio={dados.patrimonio}
                         local={dados.local}
                         obs={dados.obs}
+                        state={ {id: dados.id} }
+                        rotaPatrimonio={`/patrimonios/editar`}
                         click={() => excluiPatrimonio(dados.id)}  
                     />
                 ))

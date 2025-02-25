@@ -78,7 +78,6 @@ function EditarPatrimonio () {
              {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
              <CardModificarPatrimonio
              patrimonio={patrimonio}
-             setPatrimonio={setPatrimonio}
              local={local}
              setLocal={setLocal}
              obs={obs}

@@ -1,7 +1,6 @@
 import styles from "./CardModificarPatrimonio.module.css"
 
 function CardModificarPatrimonio({
-    setPatrimonio, 
     patrimonio, 
     setLocal, 
     local, 
@@ -15,7 +14,7 @@ function CardModificarPatrimonio({
             <form className={styles.formularios} onSubmit={enviarFormulario}>
                 <div className={styles.formulario}>
                     <label className={styles.texto}>Patrimônio:</label>
-                    <input onChange={(e) => setPatrimonio(e.target.value)} value={patrimonio} className={styles.campo} type="text" required></input>
+                    <label className={styles.texto}>{patrimonio}</label>
                 </div>
                 <div className={styles.select}>
                     <h1 className={styles.texto}>Local:</h1>
