@@ -72,10 +72,13 @@ function EditarPatrimonio() {
     };
 
     const criarHistorico = async () => {
+        const dataAtual = new Date().toISOString(); 
+
         const novoHistorico = {
             patrimonio_id: id,
             entrada: local, 
-            saida: entrada 
+            saida: entrada,
+            data: dataAtual 
         };
 
         try {
@@ -104,7 +107,7 @@ function EditarPatrimonio() {
                 setLocal={setLocal}
                 obs={obs}
                 setObs={setObs}
-                enviarFormulario={editarPatrimonio} // Passa apenas a função principal
+                enviarFormulario={editarPatrimonio} 
             />
         </section>
     );

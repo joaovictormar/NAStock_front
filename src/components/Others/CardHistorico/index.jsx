@@ -10,12 +10,12 @@ function CardHistorico ({patrimonio, saida, entrada, data}) {
                         <h2 className={styles.texto}>{patrimonio}</h2>
                     </li>
                     <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Entrada:</h1>
-                        <h2 className={styles.texto}>{entrada}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
                         <h1 className={styles.texto}>Saída:</h1>
                         <h2 className={styles.texto}>{saida}</h2>
+                    </li>
+                    <li className={styles.textoPropriedade}>
+                        <h1 className={styles.texto}>Entrada:</h1>
+                        <h2 className={styles.texto}>{entrada}</h2>
                     </li>
                     <li className={styles.textoPropriedade}>
                         <h1 className={styles.texto}>Data:</h1>
