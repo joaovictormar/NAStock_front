@@ -80,7 +80,6 @@ function Equipamento() {
                 equipamentosFiltrados.map((equipamento) => (
                     <CardEquipamento
                         key={equipamento.id}
-                        id={equipamento.id}
                         categoria={equipamento.categoria}
                         marca={equipamento.marca}
                         modelo={equipamento.modelo}
@@ -88,9 +87,6 @@ function Equipamento() {
                         memoria={equipamento.memoria}
                         disco={equipamento.disco}
                         quantidade={equipamento.quantidade}
-                        state={{ id: equipamento.id }}
-                        rota={"/equipamentos/editar"}
-                        click={() => excluiEquipamento(equipamento.id)}
                     />
                 ))
             ) : (

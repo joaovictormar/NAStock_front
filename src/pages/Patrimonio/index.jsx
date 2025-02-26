@@ -118,7 +118,6 @@ function Patrimonio() {
                             obs={dados.obs}
                             state={ {id: dados.id} }
                             rotaPatrimonio={`/patrimonios/editar`}
-                            clickExcluir={() => excluiPatrimonio(dados.id)}
                             rotaHistorico={`/historico/patrimonio/${dados.id}`}
                         />
                     ))

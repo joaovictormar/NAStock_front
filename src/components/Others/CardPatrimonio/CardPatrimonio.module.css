@@ -27,6 +27,13 @@
     font-size: 20px;
 }
 
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 .botao {
     padding: 0.5rem;
     border-radius: 8px;
@@ -42,13 +49,6 @@
     background-color: var(--primaria);
     transition: 0.2s;
     cursor: pointer;
-}
-
-.botoes {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem 0;
 }
 
 .botaoHistorico {
