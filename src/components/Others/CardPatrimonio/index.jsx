@@ -54,7 +54,7 @@ function CardPatrimonio ({ patrimonio, local, obs ,categoria, marca, modelo, pro
                     <Link className={styles.botao} state={state} to={rotaPatrimonio}>Editar patrimônio</Link>  
                     <button className={styles.botao} onClick={clickDevolucao}>Devolver patrimônio</button>  
                 </div>
-                <Link className={styles.botaoHistorico} to={rotaHistorico}>Histórico</Link>  
+                <Link className={styles.botaoHistorico} state={state} to={rotaHistorico}>Histórico</Link>  
             </div>            
         </section>
         

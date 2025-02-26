@@ -35,4 +35,4 @@ function CardModificarPatrimonio({
 
 };
 
-export default CardModificarPatrimonio;
+export default CardModificarPatrimonio; 
