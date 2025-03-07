@@ -7,6 +7,7 @@ function EditarPatrimonio() {
     const [patrimonio, setPatrimonio] = useState("");
     const [local, setLocal] = useState("");
     const [obs, setObs] = useState("");
+    const [motivo, setMotivo] = useState("");  
     const [mensagem, setMensagem] = useState("");
     const [entrada, setEntrada] = useState("");
 
@@ -57,7 +58,7 @@ function EditarPatrimonio() {
             });
 
             if (response.ok) {
-                await criarHistorico(); 
+                await criarHistorico(motivo);  
                 setMensagem("Patrimônio editado com sucesso!");
                 setTimeout(() => {
                     navigate("/");
@@ -71,14 +72,15 @@ function EditarPatrimonio() {
         }
     };
 
-    const criarHistorico = async () => {
-        const dataAtual = new Date().toISOString(); 
+    const criarHistorico = async (motivo) => {  
+        const dataAtual = new Date().toISOString();
 
         const novoHistorico = {
             patrimonio_id: id,
-            entrada: local, 
+            entrada: local,
             saida: entrada,
-            data: dataAtual 
+            data: dataAtual,
+            motivo: motivo  
         };
 
         try {
@@ -107,6 +109,8 @@ function EditarPatrimonio() {
                 setLocal={setLocal}
                 obs={obs}
                 setObs={setObs}
+                motivo={motivo}           
+                setMotivo={setMotivo}   
                 enviarFormulario={editarPatrimonio} 
             />
         </section>

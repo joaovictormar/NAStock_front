@@ -115,6 +115,7 @@ function Patrimonio() {
                             quantidade={dados.quantidade}
                             patrimonio={dados.patrimonio}
                             local={dados.local}
+                            empresa={dados.empresa}
                             obs={dados.obs}
                             state={ {id: dados.id} }
                             rotaPatrimonio={`/patrimonios/editar`}

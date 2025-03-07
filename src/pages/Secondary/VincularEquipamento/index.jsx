@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 function VincularEquipamento() {
     const [equipamentos, setEquipamentos] = useState([]);
     const [modeloSelecionado, setModeloSelecionado] = useState("");
-    const [patrimonio, setPatrimonio] = useState("");
     const [local, setLocal] = useState("");
     const [obs, setObs] = useState("");
+    const [empresa, setEmpresa] = useState(""); // Novo estado para empresa
     const [mensagem, setMensagem] = useState("");
 
     useEffect(() => {
@@ -30,8 +30,8 @@ function VincularEquipamento() {
         }
 
         const novosEquipamentos = {
-            equipamento_id: equipamentoSelecionado.id, 
-            patrimonio,
+            equipamento_id: equipamentoSelecionado.id,
+            empresa, // Adicionado empresa
             local,
             obs,
         };
@@ -44,15 +44,16 @@ function VincularEquipamento() {
                 },
                 body: JSON.stringify(novosEquipamentos),
             });
+
             if (response.ok) {
                 setMensagem("Equipamento vinculado ao patrimônio com sucesso!");
                 setTimeout(() => {
                     window.location.reload();
                 }, 2000);
                 setModeloSelecionado("");
-                setPatrimonio("");
                 setLocal("");
                 setObs("");
+                setEmpresa(""); // Resetando empresa após o envio
             } else {
                 const errorData = await response.json();
                 setMensagem(errorData.error || "Erro inesperado. Tente novamente.");
@@ -70,12 +71,12 @@ function VincularEquipamento() {
                 equipamentos={equipamentos}
                 modeloSelecionado={modeloSelecionado}
                 setModeloSelecionado={setModeloSelecionado}
-                patrimonio={patrimonio}
-                setPatrimonio={setPatrimonio}
                 local={local}
                 setLocal={setLocal}
                 obs={obs}
                 setObs={setObs}
+                empresa={empresa} // Passando empresa
+                setEmpresa={setEmpresa} // Passando setEmpresa
                 criaPatrimonio={criaPatrimonio}
             />
         </section>

@@ -7,7 +7,7 @@
     justify-content: space-between;
     padding: 4rem;
     align-items: center;
-    width: 55%;
+    width: 70%;
 }
 
 .equipamentos, .patrimonios {
@@ -24,7 +24,7 @@
 .texto {
     color: var(--primaria);
     font-weight: 600;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .botoes {

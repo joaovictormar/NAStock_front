@@ -37,22 +37,25 @@ function Historico() {
     }, []); 
 
     return (
-        <section className={styles.historico}>
+        <section className={styles.historicos}>
             <h1>Histórico de alterações</h1>
             {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
-            {historicos.length > 0 ? (
-                historicos.map((item) => (
-                    <CardHistorico
-                        key={item.id}  
-                        patrimonio={item.patrimonioNumero} 
-                        saida={item.saida}
-                        entrada={item.entrada}
-                        data={item.data}  
-                    />
-                ))
-            ) : (
-                <h1 className={styles.textoErro}>Não há históricos registrados.</h1>
-            )}
+            <div className={styles.historico}>
+                {historicos.length > 0 ? (
+                    historicos.map((item) => (
+                        <CardHistorico
+                            key={item.id}  
+                            patrimonio={item.patrimonioNumero} 
+                            saida={item.saida}
+                            entrada={item.entrada}
+                            data={item.data}  
+                            motivo={item.motivo}
+                        />
+                    ))
+                ) : (
+                    <h1 className={styles.textoErro}>Não há históricos registrados.</h1>
+                )}
+            </div>
         </section>
     );
 }
