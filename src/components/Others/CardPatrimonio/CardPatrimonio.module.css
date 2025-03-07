@@ -1,67 +1,54 @@
 .cardPatrimonio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
     border: 1px solid 0;
     background-color: var(--cinza-claro);
     border-radius: 8px;
+    width: 80%;
+}
+
+.listagem {
     display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-    padding: 4rem;
-    align-items: center;
-    width: 70%;
+    flex-direction: row;
+    gap: 5rem;
 }
 
 .equipamentos, .patrimonios {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.descricao {
     display: flex;
     gap: 2rem;
 }
 
 .texto {
     color: var(--primaria);
-    font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
+    font-weight: 500;
 }
+
+.textoCampo {
+    color: var(--primaria);
+    font-weight: 550;
+}
+
 
 .botoes {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .botao {
-    padding: 0.5rem;
+    padding: 0.4rem;
     border-radius: 8px;
-    border: 0;
     background-color: var(--secundaria);
     color: var(--terciaria);
     text-decoration: none;
-    font-size: 15px;
     text-align: center;
 }
 
 .botao:hover {
     background-color: var(--primaria);
     transition: 0.2s;
-    cursor: pointer;
-}
-
-.botaoHistorico {
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 0;
-    background-color: var(--primaria);
-    color: var(--terciaria);
-    text-decoration: none;
-    font-size: 15px;
-    text-align: center;
-}
-
-.botaoHistorico:hover {
     cursor: pointer;
 }

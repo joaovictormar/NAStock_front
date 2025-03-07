@@ -29,7 +29,7 @@ function CardVincular({
             </select>
             <form className={styles.cardPrincipal} onSubmit={criaPatrimonio}>
                 <div className={styles.formularios}>
-                    <div className={styles.formulario}>
+                <div className={styles.formulario}>
                         <label className={styles.texto}>Local:</label>
                         <select
                             onChange={(e) => setLocal(e.target.value)}
