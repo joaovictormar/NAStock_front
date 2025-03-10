@@ -1,22 +1,39 @@
 .cardEquipamento {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border: 1px solid 0;
     border-radius: 12px;
     padding: 2rem;
-    background-color: var(--cinza-claro);
-    width: 50%;
+    background-color: var(--branco-escuro);
+    width: 90%;
+}
+
+.propriedades {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.linha {
+    color: var(--primaria);
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
 .textoPropriedade {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .textoPropriedade h1 {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.textoPropriedade h2 {
+    font-size: 20px;
 }
 
 .texto {

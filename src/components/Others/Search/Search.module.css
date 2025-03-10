@@ -2,7 +2,7 @@
     width: 500px;
     padding: 0.3rem;
     border-radius: 15px;
-    border: 0;
+    border: 2px solid var(--primaria);
     color: var(--primaria);
     background-color: var(--cinza-claro);
     outline: none;
