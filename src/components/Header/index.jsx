@@ -1,26 +1,30 @@
-import styles from "./Header.module.css"
-import {Link} from "react-router-dom";
-import logo from "../../assets/logo.png"
+import styles from "./Header.module.css";
+import { NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
-function Header () {
-
-    return (
-        
-        <section className={styles.header}>
-            <figure className={styles.figura}>
-                <img className={styles.logo} src={logo}/>
-                <h1>STOCK</h1>
-            </figure>
-            <div className={styles.botoes}>
-                <Link className={styles.botao} to="/">Equipamentos</Link>
-                <Link className={styles.botao} to="/patrimonios">Patrimonios</Link>
-                <Link className={styles.botao} to="/historico">Historico</Link>
-                <Link className={styles.botao} to="/sobre">Sobre</Link>
-            </div>
-        </section>
-
-    )
-
-};
+function Header() {
+  return (
+    <section className={styles.header}>
+      <figure className={styles.figura}>
+        <img className={styles.logo} src={logo} alt="Logo" />
+        <h1>STOCK</h1>
+      </figure>
+      <div className={styles.botoes}>
+        <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/">
+          Equipamentos
+        </NavLink>
+        <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/patrimonios">
+          Patrimonios
+        </NavLink>
+        <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/historico">
+          Historico
+        </NavLink>
+        <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/sobre">
+          Sobre
+        </NavLink>
+      </div>
+    </section>
+  );
+}
 
 export default Header;

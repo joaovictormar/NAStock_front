@@ -23,3 +23,7 @@
 .botao:hover {
     color: var(--secundaria);
 }
+
+.ativo {
+    color: var(--secundaria);
+}
