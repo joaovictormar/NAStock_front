@@ -14,7 +14,7 @@
     gap: 4rem;
 }
 
-.linha {
+hr {
     color: var(--primaria);
     margin-bottom: 1rem;
     width: 100%;

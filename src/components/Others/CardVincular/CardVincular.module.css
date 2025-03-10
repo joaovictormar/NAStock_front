@@ -12,14 +12,6 @@
     margin: 0 auto; 
 }
 
-.selecao {
-    color: var(--primaria);
-    border-radius: 8px;
-    width: 30%;
-    border: 0;
-    font-size: 15px;
-}
-
 .opcao {
     color: var(--primaria);
     font-size: 20px;
@@ -52,8 +44,19 @@
     font-size: 20px;
 }
 
+.selecao {
+        border-radius: 8px;
+        border: 0;
+        color: var(--cinza-escuro);
+        font-size: 24px;
+    
+}
+
 .campo {
-    color: var(--primaria);
+    border-radius: 8px;
+    border: 0;
+    color: var(--cinza-escuro);
+    font-size: 24px;
 }
 
 .opcao {

@@ -4,15 +4,15 @@
     gap: 2rem;
     padding: 1rem;
     border: 1px solid 0;
-    background-color: var(--terciaria);
+    background-color: var(--branco-escuro);
     border-radius: 8px;
-    width: 80%;
+    width: 85%;
 }
 
 .listagem {
     display: flex;
     flex-direction: row;
-    gap: 5rem;
+    gap: 8rem;
 }
 
 .equipamentos, .patrimonios {
@@ -20,15 +20,29 @@
     gap: 2rem;
 }
 
+.descricao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+hr {
+    color: var(--primaria);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
 .texto {
     color: var(--primaria);
+    font-weight: 700;
     font-size: 18px;
-    font-weight: 500;
 }
 
 .textoCampo {
     color: var(--primaria);
-    font-weight: 550;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 
@@ -41,14 +55,14 @@
 .botao {
     padding: 0.4rem;
     border-radius: 8px;
-    background-color: var(--secundaria);
+    background-color: var(--primaria);
     color: var(--terciaria);
     text-decoration: none;
     text-align: center;
 }
 
 .botao:hover {
-    background-color: var(--primaria);
-    transition: 0.2s;
+    background-color: var(--cinza-escuro);
+    transition: 0.3s;
     cursor: pointer;
 }
