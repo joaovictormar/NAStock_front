@@ -2,9 +2,9 @@
     width: 500px;
     padding: 0.3rem;
     border-radius: 15px;
-    border: 2px solid var(--primaria);
+    border: 0;
     color: var(--primaria);
-    background-color: var(--cinza-claro);
+    background-color: var(--branco-escuro);
     outline: none;
     appearance: none;
     -webkit-appearance: none;

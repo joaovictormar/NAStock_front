@@ -37,7 +37,17 @@ function CardModificarEquipamento({
             </div>
             <div className={styles.formulario}>
                 <label className={styles.texto}>Marca:</label>
-                <input onChange={(e) => setMarca(e.target.value)} value={marca} className={styles.input} type="text" required />
+                <select
+                className={styles.selecao}
+                onChange={(e) => setMarca(e.target.value)}
+                value={marca}
+                required
+                >
+                    <option className={styles.opcao} value="" disabled>Selecione uma marca</option>
+                    <option className={styles.opcao} value="Dell">Dell</option>
+                    <option className={styles.opcao} value="HP">HP</option>
+                    <option className={styles.opcao} value="Lenovo">Lenovo</option>
+                </select>
             </div>
             <div className={styles.formulario}>
                 <label className={styles.texto}>Modelo:</label>
@@ -49,11 +59,53 @@ function CardModificarEquipamento({
             </div>
             <div className={styles.formulario}>
                 <label className={styles.texto}>Memória:</label>
-                <input onChange={(e) => setMemoria(e.target.value)} value={memoria} className={styles.input} type="text" />
+                <select className={styles.selecao} 
+                onChange={(e) => setMemoria(e.target.value)} 
+                value={memoria} 
+                >
+                    <option className={styles.opcao} value="" disabled>Selecione uma memória</option>
+                    <option className={styles.opcao} value="4GB DDR3">4GB DDR3</option>
+                    <option className={styles.opcao} value="8GB DDR3">8GB DDR3</option>
+                    <option className={styles.opcao} value="16GB DDR3">16GB DDR3</option>
+                    <option className={styles.opcao} value="32GB DDR3">32GB DDR3</option>
+                    <option className={styles.opcao} value="64GB DDR3">64GB DDR3</option>
+                    <option className={styles.opcao} value="4GB DDR4">4GB DDR4</option>
+                    <option className={styles.opcao} value="8GB DDR4">8GB DDR4</option>
+                    <option className={styles.opcao} value="16GB DDR4">16GB DDR4</option>
+                    <option className={styles.opcao} value="32GB DDR4">32GB DDR4</option>
+                    <option className={styles.opcao} value="64GB DDR4">64GB DDR4</option>
+                </select>
             </div>
             <div className={styles.formulario}>
                 <label className={styles.texto}>Disco:</label>
-                <input onChange={(e) => setDisco(e.target.value)} value={disco} className={styles.input} type="text" />
+                <select className={styles.selecao}
+                onChange={(e) => setDisco(e.target.value)} 
+                value={disco}>
+                    <option className={styles.opcao} value="" disabled>Selecione um disco</option>
+                    <option className={styles.opcao} value="500GB HD">500GB HD</option>
+                    <option className={styles.opcao} value="1TB HD">1TB HD</option>
+                    <option className={styles.opcao} value="2TB HD">2TB HD</option>
+                    <option className={styles.opcao} value="4TB HD">4TB HD</option>
+                    <option className={styles.opcao} value="10TB HD">10TB HD</option>
+                    <option className={styles.opcao} value="120GB SSD">120GB SSD</option>
+                    <option className={styles.opcao} value="240GB SSD">240GB SSD</option>
+                    <option className={styles.opcao} value="480GB SSD">480GB SSD</option>
+                    <option className={styles.opcao} value="500GB HD + 120GB SSD">500GB HD + 120GB SSD</option>
+                    <option className={styles.opcao} value="500GB HD + 240GB SSD">500GB HD + 240GB SSD</option>
+                    <option className={styles.opcao} value="500GB HD + 480GB SSD">500GB HD + 480GB SSD</option>
+                    <option className={styles.opcao} value="1TB HD + 120GB SSD">1TB HD + 120GB SSD</option>
+                    <option className={styles.opcao} value="1TB HD + 240GB SSD">1TB HD + 240GB SSD</option>
+                    <option className={styles.opcao} value="1TB HD + 480GB SSD">1TB HD + 480GB SSD</option>
+                    <option className={styles.opcao} value="2TB HD + 120GB SSD">2TB HD + 120GB SSD</option>
+                    <option className={styles.opcao} value="2TB HD + 240GB SSD">2TB HD + 240GB SSD</option>
+                    <option className={styles.opcao} value="2TB HD + 480GB SSD">2TB HD + 480GB SSD</option>
+                    <option className={styles.opcao} value="4TB HD + 120GB SSD">4TB HD + 120GB SSD</option>
+                    <option className={styles.opcao} value="4TB HD + 240GB SSD">4TB HD + 240GB SSD</option>
+                    <option className={styles.opcao} value="4TB HD + 480GB SSD">4TB HD + 480GB SSD</option>
+                    <option className={styles.opcao} value="10TB HD + 120GB SSD">10TB HD + 120GB SSD</option>
+                    <option className={styles.opcao} value="10TB HD + 240GB SSD">10TB HD + 240GB SSD</option>
+                    <option className={styles.opcao} value="10TB HD + 480GB SSD">10TB HD + 480GB SSD</option>
+                </select>
             </div>
             <div className={styles.formulario}>
                 <label className={styles.texto}>Quantidade:</label>

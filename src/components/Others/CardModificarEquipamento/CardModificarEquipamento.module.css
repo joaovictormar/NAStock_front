@@ -1,12 +1,11 @@
 .cardModificarEquipamento {
-    width: 40%;
     display: flex;
     gap: 1rem;
     flex-direction: column;
     border: 1px solid 0;
     border-radius: 12px;
     padding: 2rem;
-    background-color: var(--cinza-claro);
+    background-color: var(--branco-escuro);
     align-items: center;
 }
 
@@ -16,7 +15,8 @@
 }
 
 .texto {
-    color: var(--cinza-escuro);
+    color: var(--primaria);
+    font-weight: 500;
     font-size: 24px;
 }
 
@@ -25,11 +25,14 @@
     border-radius: 8px;
     width: 80%;
     border: 0;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .opcao {
     color: var(--primaria);
+    font-size: 20px;
+    font-weight: 400;
 }
 
 
