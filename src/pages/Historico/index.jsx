@@ -38,7 +38,7 @@ function Historico() {
 
     return (
         <section className={styles.historicos}>
-            <h1>Histórico de alterações</h1>
+            <h1 className={styles.texto}>Histórico de alterações</h1>
             {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
             <div className={styles.historico}>
                 {historicos.length > 0 ? (

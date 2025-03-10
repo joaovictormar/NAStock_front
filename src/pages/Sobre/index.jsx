@@ -12,7 +12,7 @@ function Sobre() {
     return (
         <section>
             <div className={styles.textos}>
-                <h1 className={styles.textoImportante}>O que é o NASITsotck?</h1>
+                <h1 className={styles.textoImportante}>O que é o NASITstock?</h1>
                 <h2 className={styles.textoComum}>NASITstock é um sistema básico de controle de estoque de equipamentos eletrônicos, desenvolvido para atender demandas da empresa relacionadas a entrada e saída de equipamentos e patrimônios, sejam eles locados ou no estoque da empresa.</h2>
             </div>
             <div className={styles.textos}>
@@ -54,7 +54,7 @@ function Sobre() {
                 </ul>
                 <h2 className={styles.textoComum}>Um equipamento pode também ser vinculado a um patrimônio na seção <strong className={styles.textoMarcado}>Equipamentos</strong> e <strong className={styles.textoMarcado}>Vincular patrimônio</strong>.</h2>
                 <h2 className={styles.textoComum}>Ao vincular um patrimônio é necessário ressaltar que apenas um equipamento pode ter vários patrimônios, desde que sejam diferentes, porém um patrimônio pode conter apenas um equipamento. Resumindo, para qualquer equipamento só pode haver um patrimônio de mesmo número vinculado a ele.</h2>
-                <h2 className={styles.textoComum}>É possível também <strong className={styles.textoMarcado}>Excluir</strong> e <strong className={styles.textoMarcado}>Editar</strong> equipamentos através dos botões presentes nos cards de cada um deles, caso seja necessário.</h2>
+                <h2 className={styles.textoComum}>É possível também <strong className={styles.textoMarcado}>Editar</strong> equipamentos através dos botões presentes nos cards de cada um deles, caso seja necessário.</h2>
             </div>
             <div className={styles.textos}>
                 <h1 className={styles.textoImportante}>Patrimônios</h1>
