@@ -27,20 +27,22 @@ function HistoricoPatrimonio() {
 
     return (
         <section className={styles.historicoPatrimonio}>
-            <h1>Histórico do patrimônio</h1>
-            {historico.length > 0 ? (
-                historico.map((item) => (
-                    <CardHistorico
-                        key={item.id}
-                        patrimonio={patrimonio} // Passa o nome do patrimônio
-                        saida={item.saida}
-                        entrada={item.entrada}
-                        data={item.data}
-                    />
-                ))
-            ) : (
-                <h1 className={styles.textoErro}>Sem histórico</h1>
-            )}
+            <h1 className={styles.texto}>Histórico do patrimônio</h1>
+            <div className={styles.historico}>
+                {historico.length > 0 ? (
+                    historico.map((item) => (
+                        <CardHistorico
+                            key={item.id}
+                            patrimonio={patrimonio} 
+                            saida={item.saida}
+                            entrada={item.entrada}
+                            data={item.data}
+                        />
+                    ))
+                ) : (
+                    <h1 className={styles.textoErro}>Sem histórico</h1>
+                )}
+            </div>
         </section>
     );
 }

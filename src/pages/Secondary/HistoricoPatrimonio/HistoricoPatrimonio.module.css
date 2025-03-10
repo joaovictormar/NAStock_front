@@ -1,6 +1,19 @@
 .historicoPatrimonio {
     display: flex;
     flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+}
+
+.texto {
+    font-size: 28px;
+    color: var(--primaria);
+    font-weight: 600;
+}
+
+.historico {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 1rem;
 }

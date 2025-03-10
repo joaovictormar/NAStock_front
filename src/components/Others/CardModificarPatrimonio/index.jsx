@@ -6,8 +6,8 @@ function CardModificarPatrimonio({
     local, 
     setObs, 
     obs,
-    setMotivo,   // Agora recebe setMotivo
-    motivo,      // Agora recebe motivo
+    setMotivo,   
+    motivo,      
     enviarFormulario
 }) {
     return (
