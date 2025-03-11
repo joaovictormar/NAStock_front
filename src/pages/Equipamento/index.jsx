@@ -75,23 +75,34 @@ function Equipamento() {
                     </Link>
                 </div>
             </div>
-            {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
-            {equipamentosFiltrados.length > 0 ? (
-                equipamentosFiltrados.map((equipamento) => (
-                    <CardEquipamento
-                        key={equipamento.id}
-                        categoria={equipamento.categoria}
-                        marca={equipamento.marca}
-                        modelo={equipamento.modelo}
-                        processador={equipamento.processador}
-                        memoria={equipamento.memoria}
-                        disco={equipamento.disco}
-                        quantidade={equipamento.quantidade}
-                    />
-                ))
-            ) : (
-                <h1 className={styles.textoErro}>Sem equipamentos encontrados</h1>
-            )}
+            <div className={styles.card}>
+                <div className={styles.descricao}>
+                    <h1 className={styles.textoDescricao}>Categoria</h1>
+                    <h1 className={styles.textoDescricao}>Marca</h1>
+                    <h1 className={styles.textoDescricao}>Modelo</h1>
+                    <h1 className={styles.textoDescricao}>Processador</h1>
+                    <h1 className={styles.textoDescricao}>Memória</h1>
+                    <h1 className={styles.textoDescricao}>Disco</h1>
+                    <h1 className={styles.textoDescricao}>Quantidade</h1>
+                </div>
+                {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
+                {equipamentosFiltrados.length > 0 ? (
+                    equipamentosFiltrados.map((equipamento) => (
+                        <CardEquipamento
+                            key={equipamento.id}
+                            categoria={equipamento.categoria}
+                            marca={equipamento.marca}
+                            modelo={equipamento.modelo}
+                            processador={equipamento.processador}
+                            memoria={equipamento.memoria}
+                            disco={equipamento.disco}
+                            quantidade={equipamento.quantidade}
+                        />
+                    ))
+                ) : (
+                    <h1 className={styles.textoErro}>Sem equipamentos encontrados</h1>
+                )}
+            </div>
         </section>
     );
 }

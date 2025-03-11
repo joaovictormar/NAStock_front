@@ -2,13 +2,37 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.8rem;
+    gap: 4rem;
 }
 
 .equipamentoSuperior {
     display: flex;
     align-items: center;
     gap: 3rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.descricao {
+    display: grid;
+    grid-template-columns: repeat(10, 11.5rem); 
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--branco-escuro);
+    width: 70%;
+}
+
+.textoDescricao {
+    color: var(--primaria);
+    font-weight: 550;
+    font-size: 20px;
 }
 
 .link {

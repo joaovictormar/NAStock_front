@@ -1,43 +1,23 @@
 .cardEquipamento {
-    display: flex;
-    align-items: center;
-    border: 1px solid 0;
-    border-radius: 12px;
-    padding: 2rem;
-    background-color: var(--branco-escuro);
-    width: 90%;
-}
-
-.propriedades {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-}
-
-hr {
-    color: var(--primaria);
-    margin-bottom: 1rem;
-    width: 100%;
-}
-
-.textoPropriedade {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr) auto auto; 
     align-items: center;
     gap: 0.5rem;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--branco-escuro);
+    width: auto;
 }
 
-.textoPropriedade h1 {
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.textoPropriedade h2 {
-    font-size: 20px;
-}
-
-.texto {
+.descricao {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid var(--cinza-claro);
+    border-radius: 2px;
     color: var(--primaria);
-    font-size: 25px;
-    font-weight: 500;
+    min-height: 3rem;
+    text-overflow: ellipsis; 
+    font-weight: 450;
 }
+
