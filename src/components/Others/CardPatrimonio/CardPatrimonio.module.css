@@ -1,68 +1,41 @@
 .cardPatrimonio {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
-    border: 1px solid 0;
-    background-color: var(--branco-escuro);
-    border-radius: 8px;
-    width: 85%;
-}
-
-.listagem {
-    display: flex;
-    flex-direction: row;
-    gap: 8rem;
-}
-
-.equipamentos, .patrimonios {
-    display: flex;
-    gap: 2rem;
-}
-
-.descricao {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr) auto auto; 
     align-items: center;
     gap: 0.5rem;
-}
-
-hr {
-    color: var(--primaria);
-    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--branco-escuro);
     width: 100%;
 }
 
-.texto {
+.descricao {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid var(--cinza-claro);
+    border-radius: 2px;
     color: var(--primaria);
-    font-weight: 700;
-    font-size: 18px;
+    min-height: 3rem;
+    text-overflow: ellipsis; 
+    font-weight: 450;
 }
-
-.textoCampo {
-    color: var(--primaria);
-    font-size: 20px;
-    font-weight: 500;
-}
-
 
 .botoes {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    gap: 0.5rem;
 }
 
 .botao {
-    padding: 0.4rem;
-    border-radius: 8px;
-    background-color: var(--primaria);
-    color: var(--terciaria);
+    padding: 0.5rem;
     text-decoration: none;
+    color: var(--branco-escuro);
+    background-color: #1a1919;
+    border-radius: 4px;
     text-align: center;
+    white-space: nowrap;
 }
 
 .botao:hover {
-    background-color: var(--cinza-escuro);
-    transition: 0.3s;
-    cursor: pointer;
+    background-color: #0056b3;
 }

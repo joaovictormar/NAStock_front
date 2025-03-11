@@ -1,14 +1,24 @@
-.locadoPatrimonio{
+.estoquePatrimonio {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    justify-content: center;
     align-items: center;
 }
 
-.locado {
+.estoque {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+}
+
+.textoErro {
+    color: var(--secundaria);
+}
+
+.mensagem {
+    color: var(--secundaria);
+    font-size: 16px;
 }
 
 .descricao {
@@ -27,13 +37,4 @@
     color: var(--primaria);
     font-weight: 550;
     font-size: 20px;
-}
-
-.textoErro {
-    color: var(--secundaria);
-}
-
-.mensagem {
-    color: var(--secundaria);
-    font-size: 16px;
 }

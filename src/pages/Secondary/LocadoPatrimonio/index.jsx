@@ -86,32 +86,47 @@ function Locado() {
     };
 
     return (
-        <div className={styles.locado}>
-            <Search onSearch={buscaDinamica} />
-            {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}  
-            {dadosFiltrados.length > 0 ? (
-                dadosFiltrados.map((dados) => (
-                    <CardPatrimonio
-                        key={dados.id}
-                        categoria={dados.categoria}
-                        marca={dados.marca}
-                        modelo={dados.modelo}
-                        processador={dados.processador}
-                        memoria={dados.memoria}
-                        disco={dados.disco}
-                        quantidade={dados.quantidade}
-                        patrimonio={dados.patrimonio}
-                        local={dados.local}
-                        obs={dados.obs}
-                        state={ {id: dados.id} }
-                        rotaPatrimonio={`/patrimonios/editar`}
-                        click={() => excluiPatrimonio(dados.id)}  
-                    />
-                ))
-            ) : (
-                <h1 className={styles.textoErro}>Sem patrimônios locados</h1>
-            )}
-        </div>
+            <section className={styles.locadoPatrimonio}>
+                <Search onSearch={buscaDinamica} />
+                <div className={styles.locado}>
+                    <div className={styles.descricao}>
+                        <h1 className={styles.textoDescricao}>Patrimônio</h1>
+                        <h1 className={styles.textoDescricao}>Local</h1>
+                        <h1 className={styles.textoDescricao}>Empresa</h1>
+                        <h1 className={styles.textoDescricao}>OBS</h1>
+                        <h1 className={styles.textoDescricao}>Categoria</h1>
+                        <h1 className={styles.textoDescricao}>Marca</h1>
+                        <h1 className={styles.textoDescricao}>Modelo</h1>
+                        <h1 className={styles.textoDescricao}>Processador</h1>
+                        <h1 className={styles.textoDescricao}>Memória</h1>
+                        <h1 className={styles.textoDescricao}>Disco</h1>
+                    </div>
+                    {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}  
+                    {dadosFiltrados.length > 0 ? (
+                        dadosFiltrados.map((dados) => (
+                            <CardPatrimonio
+                                key={dados.id}
+                                categoria={dados.categoria}
+                                marca={dados.marca}
+                                modelo={dados.modelo}
+                                processador={dados.processador}
+                                memoria={dados.memoria}
+                                empresa={dados.empresa}
+                                disco={dados.disco}
+                                quantidade={dados.quantidade}
+                                patrimonio={dados.patrimonio}
+                                local={dados.local}
+                                obs={dados.obs}
+                                state={ {id: dados.id} }
+                                rotaPatrimonio={`/patrimonios/editar`}
+                                click={() => excluiPatrimonio(dados.id)}  
+                            />
+                        ))
+                    ) : (
+                        <h1 className={styles.textoErro}>Sem patrimônios locados</h1>
+                    )}
+                </div>
+            </section>
     );
 }
 

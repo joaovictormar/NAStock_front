@@ -6,7 +6,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --primaria: #000000;
+  --primaria: #0d0d0d;
   --secundaria: #df1d24;
   --terciaria: #ffffff;
   --branco-escuro: #f5f0f0;
@@ -21,16 +21,3 @@
   color: var(--terciaria);
 }
 
-/*
-::-webkit-scrollbar {
-  width: 8px;  
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--primaria); 
-  border-radius: 10px; 
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--secundaria);
-}

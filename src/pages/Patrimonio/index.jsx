@@ -101,6 +101,18 @@ function Patrimonio() {
                 </div>
             </div>
             <div className={styles.card}>
+                <div className={styles.descricao}>
+                    <h1 className={styles.textoDescricao}>Patrimônio</h1>
+                    <h1 className={styles.textoDescricao}>Local</h1>
+                    <h1 className={styles.textoDescricao}>Empresa</h1>
+                    <h1 className={styles.textoDescricao}>OBS</h1>
+                    <h1 className={styles.textoDescricao}>Categoria</h1>
+                    <h1 className={styles.textoDescricao}>Marca</h1>
+                    <h1 className={styles.textoDescricao}>Modelo</h1>
+                    <h1 className={styles.textoDescricao}>Processador</h1>
+                    <h1 className={styles.textoDescricao}>Memória</h1>
+                    <h1 className={styles.textoDescricao}>Disco</h1>
+                </div>
                 {mensagem && <h1 className={styles.mensagem}>{mensagem}</h1>}
                 {dadosFiltrados.length > 0 ? (
                     dadosFiltrados.map((dados) => (
