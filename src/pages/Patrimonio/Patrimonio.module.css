@@ -12,6 +12,23 @@
     gap: 2rem;
 }
 
+.filtros {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.selecao {
+    background-color: var(--branco-escuro);
+    color: var(--primaria);
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.opcao {
+    font-size: 18px;
+    color: var(--primaria);
+}
+
 .descricao {
     display: grid;
     grid-template-columns: repeat(10, auto); 
@@ -29,26 +46,6 @@
     font-weight: 550;
     font-size: 20px;
 }
-
-.links {
-    display: flex;
-    gap: 1rem;
-}
-
-.link {
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 0;
-    background-color: var(--primaria);
-    color: var(--terciaria);
-    text-decoration: none;
-}
-
-.link:hover {
-cursor: pointer;
-transition: 0.3s;
-}
-
 .card {
     display: flex;
     flex-direction: column;
@@ -63,3 +60,4 @@ transition: 0.3s;
 .textoErro {
     color: var(--secundaria);
 }
+

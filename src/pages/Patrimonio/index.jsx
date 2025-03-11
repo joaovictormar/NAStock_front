@@ -8,8 +8,12 @@ function Patrimonio() {
     const [mensagem, setMensagem] = useState("");
     const [patrimonios, setPatrimonios] = useState([]);
     const [equipamentosQueTemPatrimonio, setEquipamentosQueTemPatrimonio] = useState([]);
-    const [dadosCombinados, setDadosCombinados] = useState([]); 
-    const [dadosFiltrados, setDadosFiltrados] = useState([]); 
+    const [dadosCombinados, setDadosCombinados] = useState([]);
+    const [dadosFiltrados, setDadosFiltrados] = useState([]);
+    
+    const [filtroCategoria, setFiltroCategoria] = useState("");
+    const [filtroMarca, setFiltroMarca] = useState("");
+    const [filtroLocal, setFiltroLocal] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/patrimonios")
@@ -49,9 +53,25 @@ function Patrimonio() {
             };
         });
 
-        setDadosCombinados(combinados); 
+        setDadosCombinados(combinados);
         setDadosFiltrados(combinados);
     }, [patrimonios, equipamentosQueTemPatrimonio]);
+
+    useEffect(() => {
+        let filtrados = dadosCombinados;
+
+        if (filtroCategoria) {
+            filtrados = filtrados.filter((item) => item.categoria === filtroCategoria);
+        }
+        if (filtroMarca) {
+            filtrados = filtrados.filter((item) => item.marca === filtroMarca);
+        }
+        if (filtroLocal) {
+            filtrados = filtrados.filter((item) => item.local === filtroLocal);
+        }
+
+        setDadosFiltrados(filtrados);
+    }, [filtroCategoria, filtroMarca, filtroLocal, dadosCombinados]);
 
     const excluiPatrimonio = async (id) => {
         try {
@@ -76,14 +96,14 @@ function Patrimonio() {
 
     const buscaDinamica = (query) => {
         if (!query) {
-            setDadosFiltrados(dadosCombinados); 
+            setDadosFiltrados(dadosCombinados);
         } else {
             const filtrados = dadosCombinados.filter((dados) =>
                 Object.values(dados).some((value) =>
                     value?.toString().toLowerCase().includes(query.toLowerCase())
                 )
             );
-            setDadosFiltrados(filtrados); 
+            setDadosFiltrados(filtrados);
         }
     };
 
@@ -91,13 +111,36 @@ function Patrimonio() {
         <section className={styles.patrimonio}>
             <div className={styles.patrimonioSuperior}>
                 <Search onSearch={buscaDinamica} />
-                <div className={styles.links}>
-                    <Link to="/patrimonios/locado" className={styles.link}>
-                        Patrimônios Locados
-                    </Link>
-                    <Link to="/patrimonios/estoque" className={styles.link}>
-                        Patrimônios no Estoque
-                    </Link>
+                <div className={styles.filtros}>
+                    <select
+                    className={styles.selecao}
+                    onChange={(e) => setFiltroCategoria(e.target.value)}
+                    >
+                        <option className={styles.opcao} value="">Todas as Categorias</option>
+                        <option className={styles.opcao} value="Desktop">Desktop</option>
+                        <option className={styles.opcao} value="Notebook">Notebook</option>
+                        <option className={styles.opcao} value="Monitor">Monitor</option>
+                        <option className={styles.opcao} value="Telefone IP">Telefone IP</option>
+                        <option className={styles.opcao} value="Servidor">Servidor</option>
+                        <option className={styles.opcao} value="Firewall">Firewall</option>
+                    </select>
+                    <select 
+                    className={styles.selecao}
+                    onChange={(e) => setFiltroMarca(e.target.value)}
+                    >
+                        <option className={styles.opcao} value="">Todas as Marcas</option>
+                        <option className={styles.opcao} value="Dell">Dell</option>
+                        <option className={styles.opcao} value="HP">HP</option>
+                        <option className={styles.opcao} value="Lenovo">Lenovo</option>
+                    </select>
+                    <select 
+                    className={styles.selecao}
+                    onChange={(e) => setFiltroLocal(e.target.value)}
+                    >
+                        <option className={styles.opcao} value="">Todos os Locais</option>
+                        <option className={styles.opcao} value="Locação">Locação</option>
+                        <option className={styles.opcao} value="Estoque">Estoque</option>
+                    </select>
                 </div>
             </div>
             <div className={styles.card}>

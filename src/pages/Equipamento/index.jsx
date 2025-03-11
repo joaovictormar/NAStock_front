@@ -5,30 +5,52 @@ import Search from "../../components/Others/Search";
 import CardEquipamento from "../../components/Others/CardEquipamento";
 
 function Equipamento() {
-    const [equipamentos, setEquipamentos] = useState([]); 
-    const [equipamentosFiltrados, setEquipamentosFiltrados] = useState([]); 
+    const [equipamentos, setEquipamentos] = useState([]);
+    const [equipamentosFiltrados, setEquipamentosFiltrados] = useState([]);
     const [mensagem, setMensagem] = useState("");
+    const [filtroCategoria, setFiltroCategoria] = useState("");
+    const [filtroMarca, setFiltroMarca] = useState("");
+    const [filtroProcessador, setFiltroProcessador] = useState("");
+    const [filtroMemoria, setFiltroMemoria] = useState("");
+    const [filtroDisco, setFiltroDisco] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/equipamentos")
             .then((response) => response.json())
             .then((data) => {
                 setEquipamentos(data);
-                setEquipamentosFiltrados(data); 
+                setEquipamentosFiltrados(data);
             })
-            .catch((error) =>
-                console.log(`Erro ao buscar equipamentos: ${error}`)
-            );
+            .catch((error) => console.log(`Erro ao buscar equipamentos: ${error}`));
     }, []);
+
+    useEffect(() => {
+        let filtrados = equipamentos;
+
+        if (filtroCategoria) {
+            filtrados = filtrados.filter((item) => item.categoria.toLowerCase().includes(filtroCategoria.toLowerCase()));
+        }
+        if (filtroMarca) {
+            filtrados = filtrados.filter((item) => item.marca.toLowerCase().includes(filtroMarca.toLowerCase()));
+        }        
+        if (filtroProcessador) {
+            filtrados = filtrados.filter((item) => item.processador.toLowerCase().includes(filtroProcessador.toLowerCase()));
+        }
+        if (filtroMemoria) {
+            filtrados = filtrados.filter((item) => item.memoria.toLowerCase().includes(filtroMemoria.toLowerCase()));
+        }
+        if (filtroDisco) {
+            filtrados = filtrados.filter((item) => item.disco.toLowerCase().includes(filtroDisco.toLowerCase()));
+        }
+
+        setEquipamentosFiltrados(filtrados);
+    }, [filtroCategoria, filtroMarca, filtroProcessador, filtroMemoria, filtroDisco, equipamentos]);
 
     const excluiEquipamento = async (id) => {
         try {
-            const response = await fetch(
-                `http://localhost:5000/equipamentos/${id}`,
-                {
-                    method: "DELETE",
-                }
-            );
+            const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
+                method: "DELETE",
+            });
 
             if (response.ok) {
                 setMensagem("Equipamento excluído com sucesso");
@@ -38,9 +60,7 @@ function Equipamento() {
                     window.location.reload();
                 }, 2000);
             } else {
-                setMensagem(
-                    "É necessário excluir todos os patrimônios desse equipamento antes de excluí-lo"
-                );
+                setMensagem("É necessário excluir todos os patrimônios desse equipamento antes de excluí-lo");
                 console.error("Erro na exclusão:", response.statusText);
             }
         } catch (error) {
@@ -56,7 +76,7 @@ function Equipamento() {
             const filtrados = equipamentos.filter((equipamento) =>
                 Object.values(equipamento).some((value) =>
                     value.toString().toLowerCase().includes(query.toLowerCase())
-                )    
+                )
             );
             setEquipamentosFiltrados(filtrados);
         }
@@ -73,6 +93,54 @@ function Equipamento() {
                     <Link to="/equipamentos/vincular" className={styles.link}>
                         Vincular Patrimônio
                     </Link>
+                </div>
+                <div className={styles.filtros}>
+                    <div className={styles.filtro}>
+                        <select className={styles.selecao} onChange={(e) => setFiltroCategoria(e.target.value)}>
+                            <option className={styles.opcao} value="">Todas as Categorias</option>
+                            <option className={styles.opcao} value="Desktop">Desktop</option>
+                            <option className={styles.opcao} value="Notebook">Notebook</option>
+                            <option className={styles.opcao} value="Monitor">Monitor</option>
+                            <option className={styles.opcao} value="Telefone IP">Telefone IP</option>
+                            <option className={styles.opcao} value="Servidor">Servidor</option>
+                            <option className={styles.opcao} value="Firewall">Firewall</option>
+                        </select>
+                        <select className={styles.selecao} onChange={(e) => setFiltroMarca(e.target.value)}>
+                            <option className={styles.opcao} value="">Todas as Marcas</option>
+                            <option className={styles.opcao} value="Dell">Dell</option>
+                            <option className={styles.opcao} value="HP">HP</option>
+                            <option className={styles.opcao} value="Lenovo">Lenovo</option>
+                        </select>
+                    </div>    
+                    <div className={styles.filtro}>
+                        <select className={styles.selecao} onChange={(e) => setFiltroProcessador(e.target.value)}>
+                            <option className={styles.opcao} value="">Todos os Processadores</option>
+                            <option className={styles.opcao} value="I3">I3</option>
+                            <option className={styles.opcao} value="I5">I5</option>
+                            <option className={styles.opcao} value="I7">I7</option>
+                            <option className={styles.opcao} value="Xeon">Xeon</option>
+                        </select>
+                        <select className={styles.selecao} onChange={(e) => setFiltroMemoria(e.target.value)}>
+                            <option className={styles.opcao} value="">Todas as Memorias</option>
+                            <option className={styles.opcao} value="DDR3">DDR3</option>
+                            <option className={styles.opcao} value="DDR4">DDR4</option>
+                            <option className={styles.opcao} value="4GB">4GB</option>
+                            <option className={styles.opcao} value="8GB">8GB</option>
+                            <option className={styles.opcao} value="16GB">16GB</option>
+                            <option className={styles.opcao} value="32GB">32GB</option>
+                            <option className={styles.opcao} value="64GB">64GB</option>
+                        </select>
+                    </div>
+                    <select className={styles.selecao} onChange={(e) => setFiltroDisco(e.target.value)}>
+                        <option className={styles.opcao} value="">Todos os Discos</option>
+                        <option className={styles.opcao} value="SSD">SSD</option>
+                        <option className={styles.opcao} value="HD">HD</option>
+                        <option className={styles.opcao} value="120GB">120GB</option>
+                        <option className={styles.opcao} value="240GB">240GB</option>
+                        <option className={styles.opcao} value="480GB">480GB</option>
+                        <option className={styles.opcao} value="500GB">500GB</option>
+                        <option className={styles.opcao} value="1TB">1TB</option>
+                    </select>
                 </div>
             </div>
             <div className={styles.card}>

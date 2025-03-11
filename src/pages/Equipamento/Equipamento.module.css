@@ -55,6 +55,32 @@
     gap: 1rem;
 }
 
+.filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filtro {
+
+    justify-content: ce;
+    display: flex;
+    gap: 1rem;
+}
+
+.selecao {
+    background-color: var(--branco-escuro);
+    color: var(--primaria);
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.opcao {
+    font-size: 18px;
+    color: var(--primaria);
+    text-align: center;
+}
+
 .mensagem {
     color: var(--secundaria);
     font-size: 16px;
