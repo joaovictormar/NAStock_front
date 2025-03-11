@@ -32,7 +32,7 @@ function Equipamento() {
         }
         if (filtroMarca) {
             filtrados = filtrados.filter((item) => item.marca.toLowerCase().includes(filtroMarca.toLowerCase()));
-        }        
+        }
         if (filtroProcessador) {
             filtrados = filtrados.filter((item) => item.processador.toLowerCase().includes(filtroProcessador.toLowerCase()));
         }
@@ -85,52 +85,50 @@ function Equipamento() {
     return (
         <section className={styles.equipamento}>
             <div className={styles.equipamentoSuperior}>
-                <Search onSearch={buscaDinamica} />
-                <div className={styles.links}>
-                    <Link to="/equipamentos/adicionar" className={styles.link}>
-                        Adicionar Equipamento
-                    </Link>
-                    <Link to="/equipamentos/vincular" className={styles.link}>
-                        Vincular Patrimônio
-                    </Link>
+                <div className={styles.equipamentoSuperiorCabecalho}>
+                    <Search onSearch={buscaDinamica} />
+                    <div className={styles.links}>
+                        <Link to="/equipamentos/adicionar" className={styles.link}>
+                            Adicionar Equipamento
+                        </Link>
+                        <Link to="/equipamentos/vincular" className={styles.link}>
+                            Vincular Patrimônio
+                        </Link>
+                    </div>
                 </div>
                 <div className={styles.filtros}>
-                    <div className={styles.filtro}>
-                        <select className={styles.selecao} onChange={(e) => setFiltroCategoria(e.target.value)}>
-                            <option className={styles.opcao} value="">Todas as Categorias</option>
-                            <option className={styles.opcao} value="Desktop">Desktop</option>
-                            <option className={styles.opcao} value="Notebook">Notebook</option>
-                            <option className={styles.opcao} value="Monitor">Monitor</option>
-                            <option className={styles.opcao} value="Telefone IP">Telefone IP</option>
-                            <option className={styles.opcao} value="Servidor">Servidor</option>
-                            <option className={styles.opcao} value="Firewall">Firewall</option>
-                        </select>
-                        <select className={styles.selecao} onChange={(e) => setFiltroMarca(e.target.value)}>
-                            <option className={styles.opcao} value="">Todas as Marcas</option>
-                            <option className={styles.opcao} value="Dell">Dell</option>
-                            <option className={styles.opcao} value="HP">HP</option>
-                            <option className={styles.opcao} value="Lenovo">Lenovo</option>
-                        </select>
-                    </div>    
-                    <div className={styles.filtro}>
-                        <select className={styles.selecao} onChange={(e) => setFiltroProcessador(e.target.value)}>
-                            <option className={styles.opcao} value="">Todos os Processadores</option>
-                            <option className={styles.opcao} value="I3">I3</option>
-                            <option className={styles.opcao} value="I5">I5</option>
-                            <option className={styles.opcao} value="I7">I7</option>
-                            <option className={styles.opcao} value="Xeon">Xeon</option>
-                        </select>
-                        <select className={styles.selecao} onChange={(e) => setFiltroMemoria(e.target.value)}>
-                            <option className={styles.opcao} value="">Todas as Memorias</option>
-                            <option className={styles.opcao} value="DDR3">DDR3</option>
-                            <option className={styles.opcao} value="DDR4">DDR4</option>
-                            <option className={styles.opcao} value="4GB">4GB</option>
-                            <option className={styles.opcao} value="8GB">8GB</option>
-                            <option className={styles.opcao} value="16GB">16GB</option>
-                            <option className={styles.opcao} value="32GB">32GB</option>
-                            <option className={styles.opcao} value="64GB">64GB</option>
-                        </select>
-                    </div>
+                    <select className={styles.selecao} onChange={(e) => setFiltroCategoria(e.target.value)}>
+                        <option className={styles.opcao} value="">Todas as Categorias</option>
+                        <option className={styles.opcao} value="Desktop">Desktop</option>
+                        <option className={styles.opcao} value="Notebook">Notebook</option>
+                        <option className={styles.opcao} value="Monitor">Monitor</option>
+                        <option className={styles.opcao} value="Telefone IP">Telefone IP</option>
+                        <option className={styles.opcao} value="Servidor">Servidor</option>
+                        <option className={styles.opcao} value="Firewall">Firewall</option>
+                    </select>
+                    <select className={styles.selecao} onChange={(e) => setFiltroMarca(e.target.value)}>
+                        <option className={styles.opcao} value="">Todas as Marcas</option>
+                        <option className={styles.opcao} value="Dell">Dell</option>
+                        <option className={styles.opcao} value="HP">HP</option>
+                        <option className={styles.opcao} value="Lenovo">Lenovo</option>
+                    </select>
+                    <select className={styles.selecao} onChange={(e) => setFiltroProcessador(e.target.value)}>
+                        <option className={styles.opcao} value="">Todos os Processadores</option>
+                        <option className={styles.opcao} value="I3">I3</option>
+                        <option className={styles.opcao} value="I5">I5</option>
+                        <option className={styles.opcao} value="I7">I7</option>
+                        <option className={styles.opcao} value="Xeon">Xeon</option>
+                    </select>
+                    <select className={styles.selecao} onChange={(e) => setFiltroMemoria(e.target.value)}>
+                        <option className={styles.opcao} value="">Todas as Memorias</option>
+                        <option className={styles.opcao} value="DDR3">DDR3</option>
+                        <option className={styles.opcao} value="DDR4">DDR4</option>
+                        <option className={styles.opcao} value="4GB">4GB</option>
+                        <option className={styles.opcao} value="8GB">8GB</option>
+                        <option className={styles.opcao} value="16GB">16GB</option>
+                        <option className={styles.opcao} value="32GB">32GB</option>
+                        <option className={styles.opcao} value="64GB">64GB</option>
+                    </select>
                     <select className={styles.selecao} onChange={(e) => setFiltroDisco(e.target.value)}>
                         <option className={styles.opcao} value="">Todos os Discos</option>
                         <option className={styles.opcao} value="SSD">SSD</option>

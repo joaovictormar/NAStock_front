@@ -6,7 +6,7 @@
 
 .patrimonioSuperior {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -19,7 +19,7 @@
 
 .selecao {
     background-color: var(--branco-escuro);
-    color: var(--primaria);
+    color: var(--cinza-escuro);
     border-radius: 5px;
     font-size: 18px;
 }

@@ -7,8 +7,14 @@
 
 .equipamentoSuperior {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 3rem;
+}
+
+.equipamentoSuperiorCabecalho {
+    display: flex;
+    gap: 1rem;
 }
 
 .card {
@@ -57,20 +63,13 @@
 
 .filtros {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
-}
-
-.filtro {
-
-    justify-content: ce;
-    display: flex;
-    gap: 1rem;
 }
 
 .selecao {
     background-color: var(--branco-escuro);
-    color: var(--primaria);
+    color: var(--cinza-escuro);
     border-radius: 5px;
     font-size: 18px;
 }

@@ -10,10 +10,13 @@ function Patrimonio() {
     const [equipamentosQueTemPatrimonio, setEquipamentosQueTemPatrimonio] = useState([]);
     const [dadosCombinados, setDadosCombinados] = useState([]);
     const [dadosFiltrados, setDadosFiltrados] = useState([]);
-    
+
+    const [filtroLocal, setFiltroLocal] = useState("");
     const [filtroCategoria, setFiltroCategoria] = useState("");
     const [filtroMarca, setFiltroMarca] = useState("");
-    const [filtroLocal, setFiltroLocal] = useState("");
+    const [filtroProcessador, setFiltroProcessador] = useState("");
+    const [filtroMemoria, setFiltroMemoria] = useState("");
+    const [filtroDisco, setFiltroDisco] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/patrimonios")
@@ -61,17 +64,26 @@ function Patrimonio() {
         let filtrados = dadosCombinados;
 
         if (filtroCategoria) {
-            filtrados = filtrados.filter((item) => item.categoria === filtroCategoria);
+            filtrados = filtrados.filter((item) => item.categoria.toLowerCase().includes(filtroCategoria.toLowerCase()));
         }
         if (filtroMarca) {
-            filtrados = filtrados.filter((item) => item.marca === filtroMarca);
+            filtrados = filtrados.filter((item) => item.marca.toLowerCase().includes(filtroMarca.toLowerCase()));
+        }
+        if (filtroProcessador) {
+            filtrados = filtrados.filter((item) => item.processador.toLowerCase().includes(filtroProcessador.toLowerCase()));
+        }
+        if (filtroMemoria) {
+            filtrados = filtrados.filter((item) => item.memoria.toLowerCase().includes(filtroMemoria.toLowerCase()));
+        }
+        if (filtroDisco) {
+            filtrados = filtrados.filter((item) => item.disco.toLowerCase().includes(filtroDisco.toLowerCase()));
         }
         if (filtroLocal) {
-            filtrados = filtrados.filter((item) => item.local === filtroLocal);
+            filtrados = filtrados.filter((item) => item.local.toLowerCase().includes(filtroLocal.toLowerCase()));
         }
 
         setDadosFiltrados(filtrados);
-    }, [filtroCategoria, filtroMarca, filtroLocal, dadosCombinados]);
+    }, [filtroCategoria, filtroMarca, filtroLocal, filtroProcessador, filtroMemoria, filtroDisco, dadosCombinados]);
 
     const excluiPatrimonio = async (id) => {
         try {
@@ -113,8 +125,16 @@ function Patrimonio() {
                 <Search onSearch={buscaDinamica} />
                 <div className={styles.filtros}>
                     <select
-                    className={styles.selecao}
-                    onChange={(e) => setFiltroCategoria(e.target.value)}
+                        className={styles.selecao}
+                        onChange={(e) => setFiltroLocal(e.target.value)}
+                    >
+                        <option className={styles.opcao} value="">Todos os Locais</option>
+                        <option className={styles.opcao} value="Locação">Locação</option>
+                        <option className={styles.opcao} value="Estoque">Estoque</option>
+                    </select>
+                    <select
+                        className={styles.selecao}
+                        onChange={(e) => setFiltroCategoria(e.target.value)}
                     >
                         <option className={styles.opcao} value="">Todas as Categorias</option>
                         <option className={styles.opcao} value="Desktop">Desktop</option>
@@ -124,22 +144,41 @@ function Patrimonio() {
                         <option className={styles.opcao} value="Servidor">Servidor</option>
                         <option className={styles.opcao} value="Firewall">Firewall</option>
                     </select>
-                    <select 
-                    className={styles.selecao}
-                    onChange={(e) => setFiltroMarca(e.target.value)}
+                    <select
+                        className={styles.selecao}
+                        onChange={(e) => setFiltroMarca(e.target.value)}
                     >
                         <option className={styles.opcao} value="">Todas as Marcas</option>
                         <option className={styles.opcao} value="Dell">Dell</option>
                         <option className={styles.opcao} value="HP">HP</option>
                         <option className={styles.opcao} value="Lenovo">Lenovo</option>
                     </select>
-                    <select 
-                    className={styles.selecao}
-                    onChange={(e) => setFiltroLocal(e.target.value)}
-                    >
-                        <option className={styles.opcao} value="">Todos os Locais</option>
-                        <option className={styles.opcao} value="Locação">Locação</option>
-                        <option className={styles.opcao} value="Estoque">Estoque</option>
+                    <select className={styles.selecao} onChange={(e) => setFiltroProcessador(e.target.value)}>
+                        <option className={styles.opcao} value="">Todos os Processadores</option>
+                        <option className={styles.opcao} value="I3">I3</option>
+                        <option className={styles.opcao} value="I5">I5</option>
+                        <option className={styles.opcao} value="I7">I7</option>
+                        <option className={styles.opcao} value="Xeon">Xeon</option>
+                    </select>
+                    <select className={styles.selecao} onChange={(e) => setFiltroMemoria(e.target.value)}>
+                        <option className={styles.opcao} value="">Todas as Memorias</option>
+                        <option className={styles.opcao} value="DDR3">DDR3</option>
+                        <option className={styles.opcao} value="DDR4">DDR4</option>
+                        <option className={styles.opcao} value="4GB">4GB</option>
+                        <option className={styles.opcao} value="8GB">8GB</option>
+                        <option className={styles.opcao} value="16GB">16GB</option>
+                        <option className={styles.opcao} value="32GB">32GB</option>
+                        <option className={styles.opcao} value="64GB">64GB</option>
+                    </select>
+                    <select className={styles.selecao} onChange={(e) => setFiltroDisco(e.target.value)}>
+                        <option className={styles.opcao} value="">Todos os Discos</option>
+                        <option className={styles.opcao} value="SSD">SSD</option>
+                        <option className={styles.opcao} value="HD">HD</option>
+                        <option className={styles.opcao} value="120GB">120GB</option>
+                        <option className={styles.opcao} value="240GB">240GB</option>
+                        <option className={styles.opcao} value="480GB">480GB</option>
+                        <option className={styles.opcao} value="500GB">500GB</option>
+                        <option className={styles.opcao} value="1TB">1TB</option>
                     </select>
                 </div>
             </div>
@@ -172,7 +211,7 @@ function Patrimonio() {
                             local={dados.local}
                             empresa={dados.empresa}
                             obs={dados.obs}
-                            state={ {id: dados.id} }
+                            state={{ id: dados.id }}
                             rotaPatrimonio={`/patrimonios/editar`}
                             rotaHistorico={`/historico/patrimonio/${dados.id}`}
                         />
