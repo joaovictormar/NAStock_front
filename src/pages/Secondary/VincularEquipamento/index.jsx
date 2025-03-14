@@ -17,6 +17,14 @@ function VincularEquipamento() {
             .catch((error) => console.log(`Erro ao buscar equipamentos: ${error}`));
     }, []);
 
+    useEffect(() => {
+        if (local === "Estoque") {
+            setEmpresa("NAS IT");  
+        } else if (local === "Locação") {
+            setEmpresa("");  
+        }
+    }, [local]);  
+
     const criaPatrimonio = async (e) => {
         e.preventDefault();
 
@@ -75,8 +83,8 @@ function VincularEquipamento() {
                 setLocal={setLocal}
                 obs={obs}
                 setObs={setObs}
-                empresa={empresa}
-                setEmpresa={setEmpresa} 
+                empresa={empresa} 
+                setEmpresa={setEmpresa}  
                 criaPatrimonio={criaPatrimonio}
             />
         </section>
