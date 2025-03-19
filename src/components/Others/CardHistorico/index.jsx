@@ -3,30 +3,33 @@ import styles from "./CardHistorico.module.css";
 function CardHistorico ({patrimonio, saida, entrada, data, motivo}) {
 
     return (
-        <div className={styles.cardHistorico}>
-                <ul className={styles.propriedades}>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Patrimônio:</h1>
-                        <h2 className={styles.texto}>{patrimonio}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Saída:</h1>
-                        <h2 className={styles.texto}>{saida}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Entrada:</h1>
-                        <h2 className={styles.texto}>{entrada}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Data:</h1>
-                        <h2 className={styles.texto}>{data}</h2>
-                    </li>
-                    <li className={styles.textoPropriedade}>
-                        <h1 className={styles.texto}>Motivo da edição:</h1>
-                        <h2 className={styles.texto}>{motivo}</h2>
-                    </li>
-                </ul>        
-        </div>
+        <section className={styles.cardHistorico}>
+                <div className={styles.textos}>
+                    <h1 className={styles.texto}>Patrimônio</h1>
+                    <hr/>
+                    <h1 className={styles.propriedade}>{patrimonio}</h1>
+                </div>
+                <div className={styles.textos}>
+                    <h1 className={styles.texto}>Saida</h1>
+                    <hr/>
+                    <h1 className={styles.propriedade}>{saida}</h1>
+                </div>
+                <div className={styles.textos}>
+                    <h1 className={styles.texto}>Entrada</h1>
+                    <hr/>
+                    <h1 className={styles.propriedade}>{entrada}</h1>
+                </div>
+                <div className={styles.textos}>
+                    <h1 className={styles.texto}>Data</h1>
+                    <hr/>
+                    <h1 className={styles.propriedade}>{data}</h1>
+                </div>
+                <div className={styles.textos}>
+                    <h1 className={styles.texto}>Motivo</h1>
+                    <hr/>
+                    <h1 className={styles.propriedade}>{motivo}</h1>
+                </div>
+        </section>
     )
 
 };
