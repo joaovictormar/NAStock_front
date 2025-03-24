@@ -1,13 +1,13 @@
 .cardEquipamento {
     display: grid;
-    grid-template-columns: repeat(10, 1fr) auto auto; 
+    grid-template-columns: repeat(7, 1fr) auto auto; 
     align-items: center;
     gap: 0.5rem;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: var(--branco-escuro);
-    width: auto;
+    width: 100%;
 }
 
 .descricao {

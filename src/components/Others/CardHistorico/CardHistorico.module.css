@@ -1,14 +1,13 @@
 .cardHistorico {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
     align-items: center;
-    gap: 4rem;
+    gap: 0.5rem;
+    padding: 0.8rem;
     border: 1px solid #ccc;
-    background-color: var(--branco-escuro);
-    width: 40%;
     border-radius: 8px;
-    padding: 1rem;
-    justify-content: center;
+    background-color: var(--branco-escuro);
+    width: 100%;
 }
 
 .textos {

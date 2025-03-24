@@ -3,7 +3,7 @@ import styles from "./CardHistorico.module.css";
 function CardHistorico ({patrimonio, saida, entrada, data, motivo}) {
 
     return (
-        <section className={styles.cardHistorico}>
+            <section className={styles.cardHistorico}>
                 <div className={styles.textos}>
                     <h1 className={styles.texto}>Patrimônio</h1>
                     <hr/>
@@ -29,7 +29,7 @@ function CardHistorico ({patrimonio, saida, entrada, data, motivo}) {
                     <hr/>
                     <h1 className={styles.propriedade}>{motivo}</h1>
                 </div>
-        </section>
+            </section>
     )
 
 };

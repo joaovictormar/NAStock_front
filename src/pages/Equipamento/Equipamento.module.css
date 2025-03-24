@@ -8,8 +8,9 @@
 .equipamentoSuperior {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .equipamentoSuperiorCabecalho {
@@ -25,14 +26,14 @@
 
 .descricao {
     display: grid;
-    grid-template-columns: repeat(10, 11.5rem); 
+    grid-template-columns: repeat(7, 1fr); 
     align-items: center;
     text-align: center;
     padding: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: var(--branco-escuro);
-    width: 70%;
+    width: 100%;
 }
 
 .textoDescricao {
