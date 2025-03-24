@@ -22,7 +22,7 @@
 
 .historico {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mantém sempre dois cards por linha */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
     justify-content: center;

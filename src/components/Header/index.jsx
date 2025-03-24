@@ -16,6 +16,9 @@ function Header() {
         <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/patrimonios">
           Patrimonios
         </NavLink>
+        <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/clientes">
+          Clientes
+        </NavLink>
         <NavLink className={({ isActive }) => isActive ? `${styles.botao} ${styles.ativo}` : styles.botao} to="/historico">
           Historico
         </NavLink>

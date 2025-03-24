@@ -25,26 +25,26 @@ function Equipamento() {
     }, []);
 
     useEffect(() => {
-        let filtrados = equipamentos;
-
+        let filtrados = equipamentos.filter((item) => item && typeof item === "object"); 
         if (filtroCategoria) {
-            filtrados = filtrados.filter((item) => item.categoria.toLowerCase().includes(filtroCategoria.toLowerCase()));
+            filtrados = filtrados.filter((item) => (item?.categoria?.toLowerCase() || "").includes(filtroCategoria.toLowerCase()));
         }
         if (filtroMarca) {
-            filtrados = filtrados.filter((item) => item.marca.toLowerCase().includes(filtroMarca.toLowerCase()));
+            filtrados = filtrados.filter((item) => (item?.marca?.toLowerCase() || "").includes(filtroMarca.toLowerCase()));
         }
         if (filtroProcessador) {
-            filtrados = filtrados.filter((item) => item.processador.toLowerCase().includes(filtroProcessador.toLowerCase()));
+            filtrados = filtrados.filter((item) => (item?.processador?.toLowerCase() || "").includes(filtroProcessador.toLowerCase()));
         }
         if (filtroMemoria) {
-            filtrados = filtrados.filter((item) => item.memoria.toLowerCase().includes(filtroMemoria.toLowerCase()));
+            filtrados = filtrados.filter((item) => (item?.memoria?.toLowerCase() || "").includes(filtroMemoria.toLowerCase()));
         }
         if (filtroDisco) {
-            filtrados = filtrados.filter((item) => item.disco.toLowerCase().includes(filtroDisco.toLowerCase()));
+            filtrados = filtrados.filter((item) => (item?.disco?.toLowerCase() || "").includes(filtroDisco.toLowerCase()));
         }
-
+    
         setEquipamentosFiltrados(filtrados);
     }, [filtroCategoria, filtroMarca, filtroProcessador, filtroMemoria, filtroDisco, equipamentos]);
+    
 
     const excluiEquipamento = async (id) => {
         try {
