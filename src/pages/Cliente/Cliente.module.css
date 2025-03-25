@@ -1,0 +1,23 @@
+.cliente {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.descricao {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--branco-escuro);
+    width: 100%;
+}
+
+.textoDescricao {
+    color: var(--primaria);
+    font-weight: 600;
+    text-align: center;
+}

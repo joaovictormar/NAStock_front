@@ -31,7 +31,7 @@ function AppRoutes () {
                     <Route path="/equipamentos/editar" element={<EditarEquipamento/>}/>
                     <Route path="/patrimonios" element={<Patrimonio/>}/>
                     <Route path="/patrimonios/editar" element={<EditarPatrimonio/>} />
-                    <Route path="/clientes" elemte={<Cliente/>}/> 
+                    <Route path="/clientes" element={<Cliente/>}/> 
                 </Route>
             </Routes>
         </BrowserRouter>
