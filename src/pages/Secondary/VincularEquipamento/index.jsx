@@ -9,6 +9,8 @@ function VincularEquipamento() {
     const [obs, setObs] = useState("");
     const [empresa, setEmpresa] = useState("");
     const [mensagem, setMensagem] = useState("");
+    const [serial, setSerial] = useState("");
+    const [garantia, setGarantia] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/equipamentos")
@@ -42,6 +44,8 @@ function VincularEquipamento() {
             empresa,
             local,
             obs,
+            serial,
+            garantia
         };
 
         try {
@@ -62,6 +66,8 @@ function VincularEquipamento() {
                 setLocal("");
                 setObs("");
                 setEmpresa(""); 
+                setSerial("");
+                setGarantia("");
             } else {
                 const errorData = await response.json();
                 setMensagem(errorData.error || "Erro inesperado. Tente novamente.");
@@ -84,7 +90,11 @@ function VincularEquipamento() {
                 obs={obs}
                 setObs={setObs}
                 empresa={empresa} 
-                setEmpresa={setEmpresa}  
+                setEmpresa={setEmpresa}
+                serial={serial}
+                setSerial={setSerial}
+                categoria={categoria}
+                setGarantia={setGarantia}
                 criaPatrimonio={criaPatrimonio}
             />
         </section>

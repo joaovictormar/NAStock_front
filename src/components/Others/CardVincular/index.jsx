@@ -10,6 +10,10 @@ function CardVincular({
     setObs,
     empresa,
     setEmpresa,
+    setSerial,
+    serial,
+    setGarantia,
+    garantia,
     criaPatrimonio
 }) {
     return (
@@ -66,6 +70,24 @@ function CardVincular({
                         <input
                             onChange={(e) => setObs(e.target.value)}
                             value={obs}
+                            className={styles.campo}
+                            type="text"
+                        />
+                    </div>
+                    <div className={styles.formulario}>
+                        <label className={styles.texto}>Serial Number:</label>
+                        <input
+                            onChange={(e) => setSerial(e.target.value)}
+                            value={serial}
+                            className={styles.campo}
+                            type="text"
+                        />
+                    </div>
+                    <div className={styles.formulario}>
+                        <label className={styles.texto}>Garantia:</label>
+                        <input
+                            onChange={(e) => setGarantia(e.target.value)}
+                            value={garantia}
                             className={styles.campo}
                             type="text"
                         />
