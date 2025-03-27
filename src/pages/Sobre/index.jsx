@@ -13,7 +13,7 @@ function Sobre() {
         <section>
             <div className={styles.textos}>
                 <h1 className={styles.textoImportante}>O que é o NASITstock?</h1>
-                <h2 className={styles.textoComum}>NASITstock é um sistema básico de controle de estoque de equipamentos eletrônicos, desenvolvido para atender demandas da empresa relacionadas a entrada e saída de equipamentos e patrimônios, sejam eles locados ou no estoque da empresa.</h2>
+                <h2 className={styles.textoComum}>NASITstock é um sistema de controle de estoque de equipamentos eletrônicos, desenvolvido para atender demandas da empresa relacionadas a entrada e saída de equipamentos e patrimônios.</h2>
             </div>
             <div className={styles.textos}>
                 <h1 className={styles.textoImportante}>Como funciona?</h1>
@@ -31,30 +31,22 @@ function Sobre() {
                 <h1 className={styles.textoImportante}>Equipamentos</h1>
                 <h2 className={styles.textoComum}>Um equipamento refere-se a um equipamento que a empresa adquiriu e que não necessariamente tem um patrimônio.</h2>
                 <h2 className={styles.textoComum}>É possível adicionar um novo equipamento através da seção <strong className={styles.textoMarcado}>Equipamentos</strong> e <strong className={styles.textoMarcado}>Adicionar equipamento</strong>.</h2>
-                <h2 className={styles.textoComum}>É importante lembrar que apenas os equipamentos das fotos acima podem ser utilizados no campo adicionar equipamento, segue abaixo a lista deles:</h2>
+                <h2 className={styles.textoComum}>Um equipamento é composto dos seguintes campos abaixo:</h2>
                 <ul className={styles.lista}>
-                    <li>
-                        <h3 className={styles.textoLista}>Desktop</h3>
-                    </li>
-                    <li>
-                        <h3 className={styles.textoLista}>Notebook</h3>
-                    </li>
-                    <li>
-                        <h3 className={styles.textoLista}>Monitor</h3>
-                    </li>
-                    <li>
-                        <h3 className={styles.textoLista}>Telefone IP</h3>
-                    </li>
-                    <li>
-                        <h3 className={styles.textoLista}>Firewall</h3>
-                    </li>
-                    <li>
-                        <h3 className={styles.textoLista}>Servidor</h3>
-                    </li>
+                    <li className={styles.textoLista}>Categoria</li>
+                    <li className={styles.textoLista}>Marca</li>
+                    <li className={styles.textoLista}>Modelo</li>
+                    <li className={styles.textoLista}>Processador</li>
+                    <li className={styles.textoLista}>Memória</li>
+                    <li className={styles.textoLista}>Disco</li>
+                    <li className={styles.textoLista}>Quantidade</li>
                 </ul>
+                <h2 className={styles.textoComum}>Apenas alguns campos da seção de equipamentos são obrigatórios, sendo eles: <strong className={styles.textoMarcado}>Categoria, Marca, Modelo, Quantidade.</strong></h2>
+                <h2 className={styles.textoComum}>É importante lembrar que apenas os equipamentos das fotos acima podem ser utilizados no campo equipamento.</h2>
                 <h2 className={styles.textoComum}>Um equipamento pode também ser vinculado a um patrimônio na seção <strong className={styles.textoMarcado}>Equipamentos</strong> e <strong className={styles.textoMarcado}>Vincular patrimônio</strong>.</h2>
                 <h2 className={styles.textoComum}>Ao vincular um patrimônio é necessário ressaltar que apenas um equipamento pode ter vários patrimônios, desde que sejam diferentes, porém um patrimônio pode conter apenas um equipamento. Resumindo, para qualquer equipamento só pode haver um patrimônio de mesmo número vinculado a ele.</h2>
-                <h2 className={styles.textoComum}>É possível também <strong className={styles.textoMarcado}>Editar</strong> equipamentos através dos botões presentes nos cards de cada um deles, caso seja necessário.</h2>
+                <h2 className={styles.textoComum}>É possível também <strong className={styles.textoMarcado}>Editar</strong> equipamentos através dos botões presentes nos cards de cada um deles, caso seja necessário. A edição de equipamentos permite que o usuário altere apenas o campo <strong className={styles.textoMarcado}>quantidade</strong>, que se refere a quantidade de equipamentos iguais disponível na empresa.</h2>
+                <h2 className={styles.textoComum}>Uma outra regra para os equipamentos é que <strong className={styles.textoMarcado}>só é possível vincular uma quantidade de patrimônios á quantidade de equipamentos disponíveis.</strong>Por exemplo, se no campo quantidade de equipamentos existem 6 unidades só será possível vincular 6 patrimônios. Essa regra só muda, se a quantidade de equipamentos for editada para um número maior.</h2>
             </div>
             <div className={styles.textos}>
                 <h1 className={styles.textoImportante}>Patrimônios</h1>
