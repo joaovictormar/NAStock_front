@@ -11,6 +11,7 @@ function VincularEquipamento() {
     const [mensagem, setMensagem] = useState("");
     const [serial, setSerial] = useState("");
     const [garantia, setGarantia] = useState("");
+    const [clientes, setClientes] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:5000/equipamentos")
@@ -39,13 +40,16 @@ function VincularEquipamento() {
             return;
         }
 
+        const entrada = new Date().toISOString().split("T")[0]; 
+
         const novosEquipamentos = {
             equipamento_id: equipamentoSelecionado.id,
             empresa,
             local,
             obs,
             serial,
-            garantia
+            garantia,
+            entrada
         };
 
         try {
@@ -78,6 +82,18 @@ function VincularEquipamento() {
         }
     };
 
+    useEffect(() => {
+        fetch("http://localhost:5000/clientes")
+                .then((response) => response.json())
+                .then((data) => setClientes(data))
+                .catch((error) => console.log(`Erro ao buscar clientes: ${error}`));
+    }, []);
+
+    const campoCliente = clientes.map((cliente) => ({
+        id: cliente.id, 
+        nome: cliente.cliente
+    }));
+
     return (
         <section className={styles.vincularEquipamento}>
             {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
@@ -93,9 +109,10 @@ function VincularEquipamento() {
                 setEmpresa={setEmpresa}
                 serial={serial}
                 setSerial={setSerial}
-                categoria={categoria}
+                garantia={garantia}
                 setGarantia={setGarantia}
                 criaPatrimonio={criaPatrimonio}
+                campoCliente={campoCliente}
             />
         </section>
     );

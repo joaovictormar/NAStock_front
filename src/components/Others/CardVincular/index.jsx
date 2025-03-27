@@ -14,7 +14,8 @@ function CardVincular({
     serial,
     setGarantia,
     garantia,
-    criaPatrimonio
+    criaPatrimonio,
+    campoCliente
 }) {
     return (
         <div className={styles.cardVincular}>
@@ -56,14 +57,19 @@ function CardVincular({
                                 readOnly
                             />
                         ) : (
-                            <input
-                                onChange={(e) => setEmpresa(e.target.value)}
-                                value={empresa}
+                            <select
                                 className={styles.campo}
-                                type="text"
+                                value={empresa}
+                                onChange={(e) => setEmpresa(e.target.value)} 
                                 required
-                            />
+                            >
+                                <option className={styles.opcao} value="" disabled>Selecione um cliente</option>
+                                {campoCliente.map((cliente) => (
+                                    <option className={styles.opcao} key={cliente.id} value={cliente.id}>{cliente.nome}</option>
+                                ))}
+                            </select>
                         )}
+
                     </div>
                     <div className={styles.formulario}>
                         <label className={styles.texto}>OBS:</label>
