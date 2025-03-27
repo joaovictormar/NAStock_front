@@ -50,13 +50,20 @@ function Sobre() {
             </div>
             <div className={styles.textos}>
                 <h1 className={styles.textoImportante}>Patrimônios</h1>
-                <h2 className={styles.textoComum}>Um patrimônio refere-se a um equipamento que a empresa já possui e está marcado com um número <strong className={styles.textoMarcado}>único</strong>.</h2>
+                <h2 className={styles.textoComum}>Um patrimônio refere-se a um equipamento que a empresa já cadastrou e está marcado com um número <strong className={styles.textoMarcado}>único</strong>.</h2>
                 <h2 className={styles.textoComum}>Na seção <strong className={styles.textoMarcado}>Patrimônios</strong> podemos ver todos os patrimônios cadastrados.</h2>
-                <h2 className={styles.textoComum}>É possível filtrar os patrimônios por <strong className={styles.textoMarcado}>Locados</strong> e no <strong className={styles.textoMarcado}>Estoque</strong> através dos botões disponíveis na seção <strong className={styles.textoMarcado}>Patrimônios</strong>.</h2>
-                <h2 className={styles.textoComum}>Além disso também é possível <strong className={styles.textoMarcado}>Excluir</strong> ou <strong className={styles.textoMarcado}>Editar</strong> um patrimônio no card do próprio.</h2>
-                <h2 className={styles.textoComum}>Um patrimônio excluído <strong className={styles.textoMarcado}>libera sua numeração para ser usada novamente</strong> por outro patrimônio.</h2>
-                <h2 className={styles.textoComum}>Não é possível adicionar mais patrimônios do que o valor do campo quantidade no equipamento referente. Por exemplo, se um equipamento possui 4 quantidades só será possível adicionar até 4 patrimônios refentes a esse equipamento.</h2>
-                <h2 className={styles.textoComum}>Como ja dito acima, não é permitido ter dois patrimônios com a mesma numeração.</h2>
+                <h2 className={styles.textoComum}>Um patrimônio conta com os todos os campos de seu equipamento correspondente <strong className={styles.textoMarcado}>exceto o campo quantidade</strong> somado dos campos abaixo:</h2>
+                <ul className={styles.lista}>
+                    <li className={styles.textoLista}>Patrimônio</li>
+                    <li className={styles.textoLista}>Local</li>
+                    <li className={styles.textoLista}>Empresa</li>
+                    <li className={styles.textoLista}>OBS</li>
+                </ul>
+                <h2 className={styles.textoComum}>Sendo os campos obrigatórios <strong className={styles.textoMarcado}>Patrimônio, Local, Empresa.</strong></h2>
+                <h2 className={styles.textoComum}>Ao vincular um patrimônio, ao preencher o campo local com as opção Estoque, o campo empresa já é cadastrado automaticamente com o nome da empresa NASIT. Além disso o patrimônio é preenchido automaticamente também, contando a partir do últimmo criado e gerando um número após o último.</h2>
+                <h2 className={styles.textoComum}>É possível filtrar os patrimônios por <strong className={styles.textoMarcado}>Local, Categoria, Marca, Processador, Memória e Disco</strong>.</h2>
+                <h2 className={styles.textoComum}>Além disso também é possível <strong className={styles.textoMarcado}>Editar</strong> um patrimônio no card do próprio.</h2>
+                <h2 className={styles.textoComum}>Ao editar um patrimônio, só é possível mudar os campos <strong className={styles.textoMarcado}>Local, Empresa e OBS</strong>. Ao editar um campo também é disponivel o campo <strong className={styles.textoMarcado}>Motivo da edição</strong> que é referente ao histórico.</h2>
             </div>
             <div className={styles.textos}>
                 <h1 className={styles.textoImportante}>Histórico</h1>
