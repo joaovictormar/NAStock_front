@@ -13,6 +13,8 @@ function Equipamento() {
     const [filtroProcessador, setFiltroProcessador] = useState("");
     const [filtroMemoria, setFiltroMemoria] = useState("");
     const [filtroDisco, setFiltroDisco] = useState("");
+    const [editandoEquipamentoId, setEditandoEquipamentoId] = useState(null);
+    const [quantidadeEditada, setQuantidadeEditada] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/equipamentos")
@@ -25,7 +27,7 @@ function Equipamento() {
     }, []);
 
     useEffect(() => {
-        let filtrados = equipamentos.filter((item) => item && typeof item === "object"); 
+        let filtrados = equipamentos.filter((item) => item && typeof item === "object");
         if (filtroCategoria) {
             filtrados = filtrados.filter((item) => (item?.categoria?.toLowerCase() || "").includes(filtroCategoria.toLowerCase()));
         }
@@ -41,12 +43,13 @@ function Equipamento() {
         if (filtroDisco) {
             filtrados = filtrados.filter((item) => (item?.disco?.toLowerCase() || "").includes(filtroDisco.toLowerCase()));
         }
-    
+
         setEquipamentosFiltrados(filtrados);
     }, [filtroCategoria, filtroMarca, filtroProcessador, filtroMemoria, filtroDisco, equipamentos]);
-    
 
-    const excluiEquipamento = async (id) => {
+
+    //Removido a pedido do cliente
+    /*const excluiEquipamento = async (id) => {
         try {
             const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
                 method: "DELETE",
@@ -67,7 +70,7 @@ function Equipamento() {
             setMensagem("Erro ao conectar com a API");
             console.error("Erro ao conectar com a API:", error);
         }
-    };
+    };*/
 
     const buscaDinamica = (query) => {
         if (!query) {
@@ -79,6 +82,45 @@ function Equipamento() {
                 )
             );
             setEquipamentosFiltrados(filtrados);
+        }
+    };
+
+    const onEditar = (id, quantidade) => {
+        setEditandoEquipamentoId(id);
+        setQuantidadeEditada(quantidade);
+    };
+
+    const onSalvar = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5000/equipamentos/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ quantidade: quantidadeEditada }),
+            });
+
+            if (response.ok) {
+                setMensagem("Equipamento atualizado com sucesso!");
+                //Atualização da lista de equipamentos mesmo sem precisar reccarregar a page
+                setEquipamentos((prevEquipamentos) =>
+                    prevEquipamentos.map((equipamento) =>
+                        equipamento.id === id
+                            ? { ...equipamento, quantidade: quantidadeEditada }
+                            : equipamento
+                    )
+                );
+                setEditandoEquipamentoId(null);
+                setTimeout (() => {
+                    setMensagem("");
+                }, 3000);
+            } else {
+                setMensagem("Erro ao salvar equipamento");
+                console.error("Erro na atualização:", response.statusText);
+            }
+        } catch (error) {
+            setMensagem("Erro ao conectar com a API");
+            console.error("Erro ao conectar com a API:", error);
         }
     };
 
@@ -163,6 +205,11 @@ function Equipamento() {
                             memoria={equipamento.memoria}
                             disco={equipamento.disco}
                             quantidade={equipamento.quantidade}
+                            editando={equipamento.id === editandoEquipamentoId}
+                            quantidadeEditada={quantidadeEditada}
+                            setQuantidadeEditada={setQuantidadeEditada}
+                            onEditar={() => onEditar(equipamento.id, equipamento.quantidade)}
+                            onSalvar={() => onSalvar(equipamento.id)}
                         />
                     ))
                 ) : (

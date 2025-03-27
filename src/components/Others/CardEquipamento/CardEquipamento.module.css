@@ -21,3 +21,29 @@
     font-weight: 450;
 }
 
+.botao {
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--branco-escuro);
+    background-color: var(--primaria);
+    border-radius: 4px;
+    text-align: center;
+    white-space: nowrap;
+    border: 0;
+}
+
+.botao:hover {
+    cursor: pointer;
+    background-color: #0056b3;
+}
+
+.inputQuantidade {
+    color: var(--primaria);
+    width: 50%;
+    text-align: center;
+    font-size: 16px;
+    background-color: var(--branco-escuro);
+    border-radius: 3px;
+    border: 1px solid var(--primaria);
+    padding: 0.5rem;
+}

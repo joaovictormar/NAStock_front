@@ -30,7 +30,7 @@
     padding: 0.5rem;
     text-decoration: none;
     color: var(--branco-escuro);
-    background-color: #1a1919;
+    background-color: var(--primaria);
     border-radius: 4px;
     text-align: center;
     white-space: nowrap;
