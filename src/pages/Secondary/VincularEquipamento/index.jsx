@@ -12,6 +12,8 @@ function VincularEquipamento() {
     const [serial, setSerial] = useState("");
     const [garantia, setGarantia] = useState("");
     const [clientes, setClientes] = useState([]);
+    const [disco, setDisco] = useState("");
+    const [memoria, setMemoria] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/equipamentos")
@@ -19,14 +21,6 @@ function VincularEquipamento() {
             .then((data) => setEquipamentos(data))
             .catch((error) => console.log(`Erro ao buscar equipamentos: ${error}`));
     }, []);
-
-    useEffect(() => {
-        if (local === "Estoque") {
-            setEmpresa("NAS IT");  
-        } else if (local === "Locação") {
-            setEmpresa("");  
-        }
-    }, [local]);  
 
     const criaPatrimonio = async (e) => {
         e.preventDefault();
@@ -49,7 +43,9 @@ function VincularEquipamento() {
             obs,
             serial,
             garantia,
-            entrada
+            entrada,
+            memoria: equipamentoSelecionado.memoria,
+            disco: equipamentoSelecionado.disco,
         };
 
         try {
@@ -72,6 +68,8 @@ function VincularEquipamento() {
                 setEmpresa(""); 
                 setSerial("");
                 setGarantia("");
+                setDisco("");
+                setMemoria("");
             } else {
                 const errorData = await response.json();
                 setMensagem(errorData.error || "Erro inesperado. Tente novamente.");

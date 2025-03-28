@@ -17,6 +17,11 @@ function CardVincular({
     criaPatrimonio,
     campoCliente
 }) {
+    // Filtra os clientes com base no valor de 'local'
+    const clientesFiltrados = local === "Estoque"
+        ? campoCliente.filter(cliente => cliente.nome === "NAS IT") // Só exibe NAS IT quando local for "Estoque"
+        : campoCliente.filter(cliente => cliente.nome !== "NAS IT"); // Exibe todos os clientes EXCETO NAS IT para "Locação"
+
     return (
         <div className={styles.cardVincular}>
             <select
@@ -49,27 +54,19 @@ function CardVincular({
                     </div>
                     <div className={styles.formulario}>
                         <label className={styles.texto}>Empresa:</label>
-                        {local === "Estoque" ? (
-                            <input
-                                className={styles.campo}
-                                type="text"
-                                value="NAS IT"
-                                readOnly
-                            />
-                        ) : (
-                            <select
-                                className={styles.campo}
-                                value={empresa}
-                                onChange={(e) => setEmpresa(e.target.value)} 
-                                required
-                            >
-                                <option className={styles.opcao} value="" disabled>Selecione um cliente</option>
-                                {campoCliente.map((cliente) => (
-                                    <option className={styles.opcao} key={cliente.id} value={cliente.id}>{cliente.nome}</option>
-                                ))}
-                            </select>
-                        )}
-
+                        <select
+                            className={styles.campo}
+                            value={empresa}
+                            onChange={(e) => setEmpresa(e.target.value)} 
+                            required
+                        >
+                            <option className={styles.opcao} value="" disabled>Selecione um cliente</option>
+                            {clientesFiltrados.map((cliente) => (
+                                <option className={styles.opcao} key={cliente.id} value={cliente.id}>
+                                    {cliente.nome}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div className={styles.formulario}>
                         <label className={styles.texto}>OBS:</label>
