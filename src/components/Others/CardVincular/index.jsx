@@ -17,10 +17,7 @@ function CardVincular({
     criaPatrimonio,
     campoCliente
 }) {
-    // Filtra os clientes com base no valor de 'local'
-    const clientesFiltrados = local === "Estoque"
-        ? campoCliente.filter(cliente => cliente.nome === "NAS IT") // Só exibe NAS IT quando local for "Estoque"
-        : campoCliente.filter(cliente => cliente.nome !== "NAS IT"); // Exibe todos os clientes EXCETO NAS IT para "Locação"
+    const clientesFiltrados = local === "Estoque" ? campoCliente.filter(cliente => cliente.nome === "NAS IT") : campoCliente.filter(cliente => cliente.nome !== "NAS IT"); 
 
     return (
         <div className={styles.cardVincular}>

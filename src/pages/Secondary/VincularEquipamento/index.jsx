@@ -58,6 +58,8 @@ function VincularEquipamento() {
             });
 
             if (response.ok) {
+                const patrimonioCriado = await response.json();
+                await criarHistorico(patrimonioCriado.id)
                 setMensagem("Equipamento vinculado ao patrimônio com sucesso!");
                 setTimeout(() => {
                     window.location.reload();
@@ -79,6 +81,34 @@ function VincularEquipamento() {
             setMensagem("Erro ao conectar com a API.");
         }
     };
+
+    const criarHistorico = async (patrimonio_id) => {  
+        const dataAtual = new Date().toISOString();
+
+        const novoHistorico = {
+            patrimonio_id,
+            entrada: "---",
+            saida: "Estoque",
+            data: dataAtual,
+            motivo: "---",
+            alteracao: "Adição de patrimônio"    
+        }
+            try {
+                const response = await fetch("http://localhost:5000/historico", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(novoHistorico)
+                });
+    
+                if (!response.ok) {
+                    console.error("Erro ao criar histórico");
+                }
+            } catch (error) {
+                console.error("Erro ao conectar com a API:", error);
+            }
+        };
 
     useEffect(() => {
         fetch("http://localhost:5000/clientes")
