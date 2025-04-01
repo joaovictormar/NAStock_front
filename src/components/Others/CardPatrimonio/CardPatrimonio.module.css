@@ -23,7 +23,13 @@
 
 .botoes {
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
+}
+.botoesSuperior {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
 }
 
 .botao {
@@ -32,8 +38,11 @@
     color: var(--branco-escuro);
     background-color: var(--primaria);
     border-radius: 4px;
+    font-size: 15px;
+    border: 0;
     text-align: center;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .botao:hover {
