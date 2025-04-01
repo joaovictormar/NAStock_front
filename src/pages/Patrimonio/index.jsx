@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import CardPatrimonio from "../../components/Others/CardPatrimonio";
 import Search from "../../components/Others/Search";
 import styles from "./Patrimonio.module.css";
@@ -50,10 +49,7 @@ function Patrimonio() {
             const equipamento = equipamentosQueTemPatrimonio.find(
                 (equip) => equip.id === patrimonio.equipamento_id
             );
-            return {
-                ...equipamento,
-                ...patrimonio,
-            };
+            return equipamento ? { ...equipamento, ...patrimonio } : {}
         });
 
         setDadosCombinados(combinados);
@@ -61,30 +57,32 @@ function Patrimonio() {
     }, [patrimonios, equipamentosQueTemPatrimonio]);
 
     useEffect(() => {
-        let filtrados = dadosCombinados;
-
+        let filtrados = dadosCombinados.filter((item) => item && typeof item === "object");
+    
         if (filtroCategoria) {
-            filtrados = filtrados.filter((item) => item.categoria.toLowerCase().includes(filtroCategoria.toLowerCase()));
+            filtrados = filtrados.filter((item) => item.categoria?.toLowerCase().includes(filtroCategoria.toLowerCase()));
         }
         if (filtroMarca) {
-            filtrados = filtrados.filter((item) => item.marca.toLowerCase().includes(filtroMarca.toLowerCase()));
+            filtrados = filtrados.filter((item) => item.marca?.toLowerCase().includes(filtroMarca.toLowerCase()));
         }
         if (filtroProcessador) {
-            filtrados = filtrados.filter((item) => item.processador.toLowerCase().includes(filtroProcessador.toLowerCase()));
+            filtrados = filtrados.filter((item) => item.processador?.toLowerCase().includes(filtroProcessador.toLowerCase()));
         }
         if (filtroMemoria) {
-            filtrados = filtrados.filter((item) => item.memoria.toLowerCase().includes(filtroMemoria.toLowerCase()));
+            filtrados = filtrados.filter((item) => item.memoria?.toLowerCase().includes(filtroMemoria.toLowerCase()));
         }
         if (filtroDisco) {
-            filtrados = filtrados.filter((item) => item.disco.toLowerCase().includes(filtroDisco.toLowerCase()));
+            filtrados = filtrados.filter((item) => item.disco?.toLowerCase().includes(filtroDisco.toLowerCase()));
         }
         if (filtroLocal) {
-            filtrados = filtrados.filter((item) => item.local.toLowerCase().includes(filtroLocal.toLowerCase()));
+            filtrados = filtrados.filter((item) => item.local?.toLowerCase().includes(filtroLocal.toLowerCase()));
         }
-
+    
         setDadosFiltrados(filtrados);
     }, [filtroCategoria, filtroMarca, filtroLocal, filtroProcessador, filtroMemoria, filtroDisco, dadosCombinados]);
 
+    //Removido a pedido do cliente 
+    /*
     const excluiPatrimonio = async (id) => {
         try {
             const response = await fetch(`http://localhost:5000/patrimonios/${id}`, {
@@ -105,6 +103,7 @@ function Patrimonio() {
             console.error("Erro ao conectar com a API:", error);
         }
     };
+    */
 
     const buscaDinamica = (query) => {
         if (!query) {
@@ -179,6 +178,7 @@ function Patrimonio() {
                         <option className={styles.opcao} value="480GB">480GB</option>
                         <option className={styles.opcao} value="500GB">500GB</option>
                         <option className={styles.opcao} value="1TB">1TB</option>
+                        <option className={styles.opcao} value="2TB">2TB</option>
                     </select>
                 </div>
             </div>
