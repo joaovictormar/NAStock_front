@@ -50,6 +50,7 @@ function Historico() {
                             entrada={item.entrada}
                             data={item.data}  
                             motivo={item.motivo}
+                            alteracao={item.alteracao}
                         />
                     ))
                 ) : (

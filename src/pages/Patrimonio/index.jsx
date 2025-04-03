@@ -149,6 +149,7 @@ function Patrimonio() {
                         item.id === id ? { ...item, memoria: memoriaEditada, disco: discoEditado } : item
                     )
                 );
+                criarHistorico(id);
             } else {
                 setMensagem("Erro ao atualizar os dados.");
             }
@@ -157,6 +158,33 @@ function Patrimonio() {
         }
     };
     
+    const criarHistorico = async (patrimonio_id) => {  
+        const dataAtual = new Date().toISOString();
+
+        const novoHistorico = {
+            patrimonio_id,
+            entrada: "---",
+            saida: "---",
+            data: dataAtual,
+            motivo: "---",
+            alteracao: "Edição de patrimônio"    
+        }
+            try {
+                const response = await fetch("http://localhost:5000/historico", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(novoHistorico)
+                });
+    
+                if (!response.ok) {
+                    console.error("Erro ao criar histórico");
+                }
+            } catch (error) {
+                console.error("Erro ao conectar com a API:", error);
+            }
+        };
     
 
     return (
