@@ -17,6 +17,11 @@ function Patrimonio() {
     const [filtroMemoria, setFiltroMemoria] = useState("");
     const [filtroDisco, setFiltroDisco] = useState("");
 
+    const [editandoId, setEditandoId] = useState(null);
+    const [memoriaEditada, setMemoriaEditada] = useState("");
+    const [discoEditado, setDiscoEditado] = useState("");
+
+
     useEffect(() => {
         fetch("http://localhost:5000/patrimonios")
             .then((response) => response.json())
@@ -118,6 +123,42 @@ function Patrimonio() {
         }
     };
 
+    const onEditar = (id, memoria, disco) => {
+        setEditandoId(id);
+        setMemoriaEditada(memoria);
+        setDiscoEditado(disco);
+    };
+
+    const onSalvar = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5000/patrimonios/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ memoria: memoriaEditada, disco: discoEditado }),
+            });
+    
+            if (response.ok) {
+                setMensagem("Atualização realizada com sucesso!");
+                setEditandoId(null);
+    
+                // Atualiza os dados localmente sem recarregar a página
+                setDadosCombinados((prevDados) =>
+                    prevDados.map((item) =>
+                        item.id === id ? { ...item, memoria: memoriaEditada, disco: discoEditado } : item
+                    )
+                );
+            } else {
+                setMensagem("Erro ao atualizar os dados.");
+            }
+        } catch (error) {
+            console.log(`Erro ao atualizar o equipamento: ${error}`);
+        }
+    };
+    
+    
+
     return (
         <section className={styles.patrimonio}>
             <div className={styles.patrimonioSuperior}>
@@ -214,6 +255,13 @@ function Patrimonio() {
                             state={{ id: dados.id }}
                             rotaPatrimonio={`/patrimonios/alugaroudevolver`}
                             rotaHistorico={`/historico/patrimonio/${dados.id}`}
+                            editando={editandoId === dados.id}
+                            memoriaEditada={memoriaEditada}
+                            discoEditado={discoEditado}
+                            onEditar={() => onEditar(dados.id, dados.memoria, dados.disco)}
+                            onSalvar={() => onSalvar(dados.id)}
+                            setMemoriaEditada={setMemoriaEditada}
+                            setDiscoEditado={setDiscoEditado}
                         />
                     ))
                 ) : (

@@ -48,3 +48,14 @@
 .botao:hover {
     background-color: #0056b3;
 }
+
+.inputEdicao {
+    color: var(--primaria);
+    width: 80%;
+    text-align: center;
+    font-size: 16px;
+    background-color: var(--branco-escuro);
+    border-radius: 3px;
+    border: 1px solid var(--primaria);
+    padding: 0.5rem;
+}

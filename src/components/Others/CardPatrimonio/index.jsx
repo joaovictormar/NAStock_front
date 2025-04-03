@@ -4,7 +4,8 @@ import styles from "./CardPatrimonio.module.css";
 function CardPatrimonio({ 
     patrimonio, local, empresa, obs, 
     categoria, marca, modelo, processador, 
-    memoria, disco, rotaPatrimonio, rotaHistorico, state 
+    memoria, disco, rotaPatrimonio, rotaHistorico, state, 
+    editando, memoriaEditada, discoEditado, onEditar, onSalvar, setMemoriaEditada, setDiscoEditado
 }) {
     return (
         <section>
@@ -17,11 +18,37 @@ function CardPatrimonio({
                 <div className={styles.descricao}>{marca}</div>
                 <div className={styles.descricao}>{modelo}</div>
                 <div className={styles.descricao}>{processador}</div>
-                <div className={styles.descricao}>{memoria}</div>
-                <div className={styles.descricao}>{disco}</div>
+                <div className={styles.descricao}>
+                    {editando ? (
+                        <input
+                            type="text"
+                            value={memoriaEditada}
+                            onChange={(e) => setMemoriaEditada(e.target.value)}
+                            className={styles.inputEdicao}
+                        />
+                    ) : (
+                        memoria
+                    )}
+                </div>
+                <div className={styles.descricao}>
+                    {editando ? (
+                        <input
+                            type="text"
+                            value={discoEditado}
+                            onChange={(e) => setDiscoEditado(e.target.value)}
+                            className={styles.inputEdicao}
+                        />
+                    ) : (
+                        disco
+                    )}
+                </div>
                 <div className={styles.botoes}>
                     <div className={styles.botoesSuperior}>
-                        <button className={styles.botao}>Editar </button>
+                        {editando ? (
+                            <button className={styles.botao} onClick={onSalvar}>Salvar</button>
+                        ) : (
+                            <button className={styles.botao} onClick={onEditar}>Editar</button>
+                        )}
                         <Link className={styles.botao} state={state} to={rotaHistorico}>Histórico</Link>
                     </div>             
                     <Link className={styles.botao}  state={state} to={rotaPatrimonio}>Alugar ou Devolver</Link>
