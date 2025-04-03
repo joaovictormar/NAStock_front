@@ -1,7 +1,8 @@
 .cliente {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 2rem;
 }
 
 .descricao {
