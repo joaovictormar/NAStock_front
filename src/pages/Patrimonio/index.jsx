@@ -9,6 +9,7 @@ function Patrimonio() {
     const [equipamentosQueTemPatrimonio, setEquipamentosQueTemPatrimonio] = useState([]);
     const [dadosCombinados, setDadosCombinados] = useState([]);
     const [dadosFiltrados, setDadosFiltrados] = useState([]);
+    const [clientes, setClientes] = useState([]);
 
     const [filtroLocal, setFiltroLocal] = useState("");
     const [filtroCategoria, setFiltroCategoria] = useState("");
@@ -27,6 +28,13 @@ function Patrimonio() {
             .then((response) => response.json())
             .then((data) => setPatrimonios(data))
             .catch((error) => console.log(`Erro ao buscar patrimônios: ${error}`));
+    }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/clientes")  
+            .then((response) => response.json())
+            .then((data) => setClientes(data))
+            .catch((error) => console.log(`Erro ao buscar clientes: ${error}`));
     }, []);
 
     useEffect(() => {
@@ -54,7 +62,15 @@ function Patrimonio() {
             const equipamento = equipamentosQueTemPatrimonio.find(
                 (equip) => equip.id === patrimonio.equipamento_id
             );
-            return equipamento ? { ...equipamento, ...patrimonio } : {}
+
+            const cliente = clientes.find((c) => c.id === patrimonio.empresa); 
+            
+            return { 
+                ...equipamento, 
+                ...patrimonio,
+                clienteNome: cliente ? cliente.cliente : "Não encontrado", 
+
+            } 
         });
 
         setDadosCombinados(combinados);
@@ -278,7 +294,7 @@ function Patrimonio() {
                             quantidade={dados.quantidade}
                             patrimonio={dados.patrimonio}
                             local={dados.local}
-                            empresa={dados.empresa}
+                            empresa={dados.clienteNome}
                             obs={dados.obs}
                             state={{ id: dados.id }}
                             rotaPatrimonio={`/patrimonios/alugaroudevolver`}
