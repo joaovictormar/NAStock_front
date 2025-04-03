@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .descricao {
@@ -17,8 +17,53 @@
     width: 100%;
 }
 
+.descricaoSuperior {
+    display: flex;
+    gap: 2rem;
+}
+
 .textoDescricao {
     color: var(--primaria);
     font-weight: 600;
     text-align: center;
 }
+
+.botao {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--primaria);
+    color: var(--terciaria);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.botao:hover, .botaoSalvar:hover{
+    background-color: var(--cinza-escuro);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.inputContainer {
+    display: flex;
+    gap: 0.3rem;
+    background-color: var(--branco-escuro);
+    padding: 0.3rem;
+    border-radius: 15px;
+}
+
+.inputNovoCliente {
+    border: transparent;
+    padding: 0.3rem;
+    border-radius: 15px;
+    background-color: var(--branco-escuro);
+    color: var(--primaria);
+}
+
+.botaoSalvar {
+    background-color: var(--primaria);
+    border-radius: 8px;
+    padding: 0.3rem;
+    border: 0;
+}
+

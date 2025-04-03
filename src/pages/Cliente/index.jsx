@@ -8,6 +8,8 @@ function Cliente() {
     const [patrimonios, setPatrimonios] = useState([]);
     const [equipamentos, setEquipamentos] = useState([]);
     const [dadosFiltrados, setDadosFiltrados] = useState([]);
+    const [adicionando, setAdicionando] = useState(false);
+    const [novoCliente, setNovoCliente] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:5000/clientes")
@@ -50,7 +52,7 @@ function Cliente() {
     };
 
     useEffect(() => {
-        setDadosFiltrados(obterDadosClientes()); // Inicializa com todos os dados
+        setDadosFiltrados(obterDadosClientes());
     }, [clientes, patrimonios, equipamentos]);
 
     const buscaDinamica = (query) => {
@@ -59,18 +61,61 @@ function Cliente() {
         } else {
             const filtrados = obterDadosClientes().filter((cliente) => {
                 return (
-                    cliente.cliente.toLowerCase().includes(query.toLowerCase()) || // Busca por nome do cliente
-                    cliente.patrimonios.some((p) => p.toLowerCase().includes(query.toLowerCase())) || // Busca por patrimônio
-                    cliente.equipamentos.some((e) => e.toLowerCase().includes(query.toLowerCase())) // Busca por categoria de equipamento
+                    cliente.cliente.toLowerCase().includes(query.toLowerCase()) ||
+                    cliente.patrimonios.some((p) => p.toLowerCase().includes(query.toLowerCase())) ||
+                    cliente.equipamentos.some((e) => e.toLowerCase().includes(query.toLowerCase()))
                 );
             });
             setDadosFiltrados(filtrados);
         }
     };
 
+    const adicionarCliente = async () => {
+        if (!novoCliente.trim()) return;
+
+        try {
+            const response = await fetch("http://localhost:5000/clientes", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ cliente: novoCliente }),
+            });
+
+            if (response.ok) {
+                const clienteCriado = await response.json();
+                setClientes((prev) => [...prev, clienteCriado]);
+                setAdicionando(false);
+                setNovoCliente("");
+            } else {
+                console.error("Erro ao cadastrar cliente");
+            }
+        } catch (error) {
+            console.error("Erro ao conectar com a API:", error);
+        }
+    };
+
     return (
         <section className={styles.cliente}>
-            <Search onSearch={buscaDinamica}/>
+            <div className={styles.descricaoSuperior}>
+                <Search onSearch={buscaDinamica} />
+                {adicionando ? (
+                    <div className={styles.inputContainer}>
+                        <input
+                            type="text"
+                            placeholder="Digite o nome do cliente"
+                            value={novoCliente}
+                            onChange={(e) => setNovoCliente(e.target.value)}
+                            className={styles.inputNovoCliente}
+                        />
+                        <button className={styles.botaoSalvar} onClick={adicionarCliente}>
+                            Salvar
+                        </button>
+                    </div>
+                ) : (
+                    <button className={styles.botao} onClick={() => setAdicionando(true)}>
+                        Adicionar Cliente
+                    </button>
+                )}
+            </div>
             <div className={styles.descricaoInferior}>
                 <div className={styles.descricao}>
                     <h1 className={styles.textoDescricao}>Cliente</h1>
