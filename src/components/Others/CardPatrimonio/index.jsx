@@ -19,13 +19,12 @@ function CardPatrimonio({
                 <div className={styles.descricao}>{processador}</div>
                 <div className={styles.descricao}>{memoria}</div>
                 <div className={styles.descricao}>{disco}</div>
-                
                 <div className={styles.botoes}>
                     <div className={styles.botoesSuperior}>
-                        <Link className={styles.botao}  state={state} to={rotaPatrimonio}>Editar</Link>
-                        <button className={styles.botao}>Alugar </button>
-                    </div>       
-                    <Link className={styles.botao} state={state} to={rotaHistorico}>Histórico</Link>
+                        <button className={styles.botao}>Editar </button>
+                        <Link className={styles.botao} state={state} to={rotaHistorico}>Histórico</Link>
+                    </div>             
+                    <Link className={styles.botao}  state={state} to={rotaPatrimonio}>Alugar ou Devolver</Link>
                 </div>
             </div>
         </section>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import CardModificarPatrimonio from "../../../components/Others/CardModificarPatrimonio";
 import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./EditarPatrimonio.module.css";
+import styles from "./AlugarOuDevolverPatrimonio.module.css";
 
-function EditarPatrimonio() {
+function AlugarOuDevolverPatrimonio() {
     const [patrimonio, setPatrimonio] = useState("");
     const [local, setLocal] = useState("");
     const [obs, setObs] = useState("");
@@ -80,7 +80,8 @@ function EditarPatrimonio() {
             entrada: local,
             saida: entrada,
             data: dataAtual,
-            motivo: motivo  
+            motivo: motivo,
+            alteracao: "Aluguel ou devolução de patrimônio"  
         };
 
         try {
@@ -117,4 +118,4 @@ function EditarPatrimonio() {
     );
 }
 
-export default EditarPatrimonio;
+export default AlugarOuDevolverPatrimonio;

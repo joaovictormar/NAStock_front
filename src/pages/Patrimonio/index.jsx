@@ -212,7 +212,7 @@ function Patrimonio() {
                             empresa={dados.empresa}
                             obs={dados.obs}
                             state={{ id: dados.id }}
-                            rotaPatrimonio={`/patrimonios/editar`}
+                            rotaPatrimonio={`/patrimonios/alugaroudevolver`}
                             rotaHistorico={`/historico/patrimonio/${dados.id}`}
                         />
                     ))
