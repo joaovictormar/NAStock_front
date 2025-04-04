@@ -1,13 +1,16 @@
 .cardPatrimonio {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr) auto auto; 
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem;
+    background-color: var(--branco-escuro);
+    padding: 0.3rem;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: var(--branco-escuro);
-    width: 100%;
+}
+
+.cardPatrimonioSuperior {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr) auto auto;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%; 
 }
 
 .descricao {
@@ -58,4 +61,28 @@
     border-radius: 3px;
     border: 1px solid var(--primaria);
     padding: 0.5rem;
+}
+
+.cardPatrimonioInferior {
+    display: flex;
+    gap: 2rem;
+}
+
+.botaoInfo {
+    border: 0;
+    color: #551A8B;
+}
+
+.botaoInfo:hover {
+    cursor: pointer;
+}
+
+.maisInformacoes {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.informacoesTexto {
+    color: var(--primaria);
 }

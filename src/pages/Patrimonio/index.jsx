@@ -21,7 +21,7 @@ function Patrimonio() {
     const [editandoId, setEditandoId] = useState(null);
     const [memoriaEditada, setMemoriaEditada] = useState("");
     const [discoEditado, setDiscoEditado] = useState("");
-
+    const [mostrarInfosExtras, setMostrarInfosExtras] = useState({});
 
     useEffect(() => {
         fetch("http://localhost:5000/patrimonios")
@@ -201,7 +201,13 @@ function Patrimonio() {
                 console.error("Erro ao conectar com a API:", error);
             }
         };
-    
+
+        const toggleInfosExtras = (id) => {
+            setMostrarInfosExtras((prev) => ({
+                ...prev,
+                [id]: !prev[id],
+            }));
+        };        
 
     return (
         <section className={styles.patrimonio}>
@@ -306,6 +312,10 @@ function Patrimonio() {
                             onSalvar={() => onSalvar(dados.id)}
                             setMemoriaEditada={setMemoriaEditada}
                             setDiscoEditado={setDiscoEditado}
+                            garantia={dados.garantia}
+                            serial={dados.serial}
+                            mostrarMaisInfo={mostrarInfosExtras[dados.id] || false}
+                            onToggleMaisInfo={() => toggleInfosExtras(dados.id)}
                         />
                     ))
                 ) : (

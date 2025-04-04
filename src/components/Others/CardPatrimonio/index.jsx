@@ -5,11 +5,12 @@ function CardPatrimonio({
     patrimonio, local, empresa, obs, 
     categoria, marca, modelo, processador, 
     memoria, disco, rotaPatrimonio, rotaHistorico, state, 
-    editando, memoriaEditada, discoEditado, onEditar, onSalvar, setMemoriaEditada, setDiscoEditado
+    editando, memoriaEditada, discoEditado, onEditar, onSalvar, setMemoriaEditada, setDiscoEditado, garantia, serial,
+    mostrarMaisInfo, onToggleMaisInfo
 }) {
     return (
-        <section>
-            <div className={styles.cardPatrimonio}>
+        <section className={styles.cardPatrimonio}>
+            <div className={styles.cardPatrimonioSuperior}>
                 <div className={styles.descricao}>{patrimonio}</div>
                 <div className={styles.descricao}>{local}</div>
                 <div className={styles.descricao}>{empresa}</div>
@@ -54,8 +55,17 @@ function CardPatrimonio({
                     <Link className={styles.botao}  state={state} to={rotaPatrimonio}>Alugar ou Devolver</Link>
                 </div>
             </div>
+            <div className={styles.cardPatrimonioInferior}>
+                <button onClick={onToggleMaisInfo} className={styles.botaoInfo}>Mais informações</button>
+                {mostrarMaisInfo && (
+                    <div className={styles.maisInformacoes}>
+                        <div className={styles.informacoesTexto}>Garantia: {garantia || "Não informado"}</div>
+                        <div className={styles.informacoesTexto}>Serial Number: {serial || "Não informado"}</div>
+                    </div>
+                )}
+            </div>
         </section>
-    );
+    ); 
 }
 
 export default CardPatrimonio;
