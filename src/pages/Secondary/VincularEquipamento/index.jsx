@@ -82,33 +82,40 @@ function VincularEquipamento() {
         }
     };
 
-    const criarHistorico = async (patrimonio_id) => {  
+    const criarHistorico = async (patrimonio_id) => {
         const dataAtual = new Date().toISOString();
-
-        const novoHistorico = {
-            patrimonio_id,
-            entrada: "---",
-            saida: "Estoque",
-            data: dataAtual,
-            motivo: "---",
-            alteracao: "Adição de patrimônio"    
-        }
-            try {
-                const response = await fetch("http://localhost:5000/historico", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(novoHistorico)
-                });
     
-                if (!response.ok) {
-                    console.error("Erro ao criar histórico");
-                }
-            } catch (error) {
-                console.error("Erro ao conectar com a API:", error);
+        try {
+            const responseCliente = await fetch(`http://localhost:5000/clientes/${empresa}`);
+            const dataCliente = await responseCliente.json();
+            const clienteDaEmpresa = dataCliente.cliente || "Desconhecido";
+
+            const novoHistorico = {
+                patrimonio_id,
+                entrada: clienteDaEmpresa,
+                saida: "NAS IT",
+                data: dataAtual,
+                motivo: "---",
+                alteracao: "Adição de patrimônio"    
+            };
+    
+            const response = await fetch("http://localhost:5000/historico", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(novoHistorico)
+            });
+    
+            if (!response.ok) {
+                console.error("Erro ao criar histórico");
             }
-        };
+    
+        } catch (error) {
+            console.error("Erro ao conectar com a API ao criar histórico:", error);
+        }
+    };
+    
 
     useEffect(() => {
         fetch("http://localhost:5000/clientes")

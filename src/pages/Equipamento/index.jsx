@@ -153,6 +153,8 @@ function Equipamento() {
                         <option className={styles.opcao} value="Dell">Dell</option>
                         <option className={styles.opcao} value="HP">HP</option>
                         <option className={styles.opcao} value="Lenovo">Lenovo</option>
+                        <option className={styles.opcao} value="AOC">AOC</option>
+                        <option className={styles.opcao} value="Samsung">Samsung</option>
                     </select>
                     <select className={styles.selecao} onChange={(e) => setFiltroProcessador(e.target.value)}>
                         <option className={styles.opcao} value="">Todos os Processadores</option>

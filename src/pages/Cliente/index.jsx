@@ -120,7 +120,7 @@ function Cliente() {
                 <div className={styles.descricao}>
                     <h1 className={styles.textoDescricao}>Cliente</h1>
                     <h1 className={styles.textoDescricao}>Patrimônios</h1>
-                    <h1 className={styles.textoDescricao}>Equipamentos locados</h1>
+                    <h1 className={styles.textoDescricao}>Equipamentos</h1>
                     <h1 className={styles.textoDescricao}>Total</h1>
                 </div>
                 {dadosFiltrados.length > 0 ? (

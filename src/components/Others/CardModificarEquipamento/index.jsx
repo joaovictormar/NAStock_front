@@ -47,6 +47,8 @@ function CardModificarEquipamento({
                     <option className={styles.opcao} value="Dell">Dell</option>
                     <option className={styles.opcao} value="HP">HP</option>
                     <option className={styles.opcao} value="Lenovo">Lenovo</option>
+                    <option className={styles.opcao} value="AOC">AOC</option>
+                    <option className={styles.opcao} value="Samsung">Samsung</option>
                 </select>
             </div>
             <div className={styles.formulario}>
